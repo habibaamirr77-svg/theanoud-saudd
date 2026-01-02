@@ -257,10 +257,10 @@ filterBtns.forEach(function(btn) {
 
 // Timeline Section
 var timelineData = [
-    { year: '2019', works: ['بنات الملاكمة'], color: '#d4af37' },
+    { year: '2019-2020', works: ['بنات الملاكمة'], color: '#d4af37' },
     { year: '2020', works: ['مذكرة ابتزاز', 'كنا امس', 'بعد حين', 'ضحايا حلال'], color: '#911e69' },
     { year: '2021', works: ['ستوديو', 'لعبة كبار'], color: '#d437b7' },
-    { year: '2022', works: ['عيال نوف', 'ستوديو'], color: '#e040fb' },
+    { year: '2022', works: ['عيال نوف'], color: '#e040fb' },
     { year: '2023', works: ['دكة العبيد', 'حوجن', 'كلاود كيتشن'], color: '#7c4dff' },
     { year: '2025', works: ['أمي'], color: '#536dfe' }
 ];
@@ -688,41 +688,99 @@ function getTimeAgo(dateString) {
     return date.toLocaleDateString('ar-SA');
 }
 
-// Fan Messages Section
+// Fan Messages Section - Improved with better visibility
 var messages = [];
 
 function initMessages() {
     var saved = localStorage.getItem('anoudMessages');
     if (saved) {
         messages = JSON.parse(saved);
-        renderMessages();
     }
+    renderMessages();
 }
 
 function renderMessages() {
     var display = document.getElementById('messagesDisplay');
     
-    document.getElementById('totalMessages').textContent = '(' + messages.length + ')';
+    // Update total count
+    var totalSpan = document.getElementById('totalMessages');
+    if (totalSpan) {
+        totalSpan.textContent = '(' + messages.length + ')';
+    }
     
     if (messages.length === 0) {
-        display.innerHTML = '<div class="no-messages" id="noMessages"><p style="font-size: 1.2em; margin-bottom: 10px;">💬</p><p>لا توجد رسائل حالياً. كن أول من يكتب رسالة للعنود سعود!</p></div>';
+        display.innerHTML = '<div class="no-messages" id="noMessages">' +
+            '<div class="empty-icon">💬</div>' +
+            '<h3>لا توجد رسائل حالياً</h3>' +
+            '<p>كن أول من يكتب رسالة للعنود سعود!</p>' +
+            '</div>';
         return;
     }
     
-    display.innerHTML = messages.map(function(msg) {
-        return '<div class="message-card">' +
-            '<div class="message-header">' +
-            '<strong>' + escapeHtml(msg.name) + '</strong>' +
-            '<span class="msg-date">' + msg.date + '</span>' +
-            '</div>' +
-            '<p>' + escapeHtml(msg.message) + '</p>' +
-            '<div class="message-actions">' +
-            '<button class="heart-btn ' + (msg.liked ? 'liked' : '') + '" onclick="likeMessage(' + msg.id + ', this)">' +
-            (msg.liked ? '❤️' : '🤍') +
-            '</button>' +
-            '<span class="likes-count">' + msg.likes + '</span>' +
-            '</div></div>';
-    }).join('');
+    // Create container for messages with animation
+    var messagesContainer = document.createElement('div');
+    messagesContainer.className = 'messages-container';
+    messagesContainer.innerHTML = '<div class="messages-grid" id="messagesGrid"></div>';
+    
+    var grid = messagesContainer.querySelector('#messagesGrid');
+    display.innerHTML = '';
+    display.appendChild(messagesContainer);
+    
+    // Render all messages with staggered animation
+    messages.forEach(function(msg, index) {
+        var card = document.createElement('div');
+        card.className = 'message-card';
+        card.style.animationDelay = (index * 0.1) + 's';
+        
+        var timeAgo = getTimeAgo(msg.timestamp || msg.id);
+        
+        card.innerHTML = 
+            '<div class="message-content">' +
+                '<div class="message-header">' +
+                    '<div class="message-avatar">' + getInitials(msg.name) + '</div>' +
+                    '<div class="message-info">' +
+                        '<strong class="message-name">' + escapeHtml(msg.name) + '</strong>' +
+                        '<span class="message-date">' + timeAgo + '</span>' +
+                    '</div>' +
+                    '<div class="message-badge">رسالة جديدة</div>' +
+                '</div>' +
+                '<div class="message-body">' +
+                    '<p>' + escapeHtml(msg.message) + '</p>' +
+                '</div>' +
+                '<div class="message-footer">' +
+                    '<div class="message-actions">' +
+                        '<button class="action-btn like-btn ' + (msg.liked ? 'liked' : '') + '" onclick="likeMessage(' + msg.id + ', this)">' +
+                            '<span class="heart-icon">' + (msg.liked ? '❤️' : '🤍') + '</span>' +
+                            '<span class="like-text">' + (msg.liked ? 'معجب' : 'أعجبني') + '</span>' +
+                        '</button>' +
+                        '<span class="likes-count">' + msg.likes + '</span>' +
+                    '</div>' +
+                    '<span class="msg-date-full">' + msg.date + '</span>' +
+                '</div>' +
+            '</div>';
+        
+        grid.appendChild(card);
+    });
+}
+
+function getInitials(name) {
+    var words = name.trim().split(' ');
+    if (words.length >= 2) {
+        return words[0][0] + words[words.length - 1][0];
+    }
+    return name.substring(0, 2).toUpperCase();
+}
+
+function getTimeAgo(timestamp) {
+    var date = new Date(timestamp);
+    var now = new Date();
+    var seconds = Math.floor((now - date) / 1000);
+    
+    if (seconds < 60) return 'الآن';
+    if (seconds < 3600) return Math.floor(seconds / 60) + ' دقيقة';
+    if (seconds < 86400) return Math.floor(seconds / 3600) + ' ساعة';
+    if (seconds < 604800) return Math.floor(seconds / 86400) + ' أيام';
+    return date.toLocaleDateString('ar-SA');
 }
 
 function likeMessage(id, btn) {
@@ -730,10 +788,24 @@ function likeMessage(id, btn) {
     if (msg) {
         msg.liked = !msg.liked;
         msg.likes += msg.liked ? 1 : -1;
-        btn.innerHTML = msg.liked ? '❤️' : '🤍';
+        
+        var heartIcon = btn.querySelector('.heart-icon');
+        var likeText = btn.querySelector('.like-text');
+        
+        heartIcon.textContent = msg.liked ? '❤️' : '🤍';
+        likeText.textContent = msg.liked ? 'معجب' : 'أعجبني';
+        
         btn.classList.toggle('liked', msg.liked);
-        btn.nextElementSibling.textContent = msg.likes;
+        
+        var likesCount = btn.nextElementSibling;
+        if (likesCount && likesCount.classList.contains('likes-count')) {
+            likesCount.textContent = msg.likes;
+        }
+        
         saveMessages();
+        
+        // Show notification
+        showNotification(msg.liked ? 'تم الإعجاب بالرسالة! ❤️' : 'تم إلغاء الإعجاب');
     }
 }
 
@@ -741,36 +813,45 @@ function saveMessages() {
     localStorage.setItem('anoudMessages', JSON.stringify(messages));
 }
 
-document.getElementById('fanForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+function deleteMessage(id) {
+    if (!confirm('هل أنت متأكد من حذف هذه الرسالة؟')) return;
     
-    var name = document.getElementById('fanName').value.trim();
-    var message = document.getElementById('fanMessage').value.trim();
-    
-    if (name && message) {
-        var newMessage = {
-            id: Date.now(),
-            name: name,
-            message: message,
-            date: new Date().toLocaleDateString('ar-SA'),
-            likes: 0,
-            liked: false
-        };
-        
-        messages.unshift(newMessage);
-        saveMessages();
-        renderMessages();
-        
-        this.reset();
-        
-        alert('شكراً لك! تم إرسال رسالتك بنجاح.');
-    }
-});
+    messages = messages.filter(function(m) { return m.id !== id; });
+    saveMessages();
+    renderMessages();
+    showNotification('تم حذف الرسالة بنجاح');
+}
 
-function escapeHtml(text) {
-    var div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+// Form submission
+var fanForm = document.getElementById('fanForm');
+if (fanForm) {
+    fanForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        var name = document.getElementById('fanName').value.trim();
+        var message = document.getElementById('fanMessage').value.trim();
+        
+        if (name && message) {
+            var newMessage = {
+                id: Date.now(),
+                name: name,
+                message: message,
+                date: new Date().toLocaleDateString('ar-SA'),
+                timestamp: new Date().toISOString(),
+                likes: 0,
+                liked: false
+            };
+            
+            messages.unshift(newMessage);
+            saveMessages();
+            renderMessages();
+            
+            this.reset();
+            
+            // Show success notification
+            showNotification('شكراً لك! تم إرسال رسالتك بنجاح! 🎉');
+        }
+    });
 }
 
 // Initialize Everything
@@ -783,20 +864,14 @@ document.addEventListener('DOMContentLoaded', function() {
 // Quiz Game - Anoud Saud Works
 // ========================================
 
-// Quiz questions database - Extended to 52 questions
+// Quiz questions database - 20 accurate questions about Anoud Saud
 const quizQuestions = [
-    // الأسئلة الأساسية (12 سؤال)
+    // الجولة 1 - الأسئلة الأساسية
     {
         type: 'role',
         question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "مذكرة ابتزاز"؟',
         correct: 'هديل',
         options: ['مريم', 'هديل', 'لميس', 'سارة']
-    },
-    {
-        type: 'work',
-        question: 'في أي عام بدأ العنود سعود مسيرتها الفنية؟',
-        correct: '2019',
-        options: ['2018', '2019', '2020', '2021']
     },
     {
         type: 'role',
@@ -818,10 +893,12 @@ const quizQuestions = [
     },
     {
         type: 'work',
-        question: 'في أي سنة تم عرض مسلسل "أمي" الذي شاركت فيه العنود سعود؟',
+        question: 'في أي عام تم عرض مسلسل "أمي" الذي شاركت فيه العنود سعود؟',
         correct: '2025',
         options: ['2023', '2024', '2025', '2022']
     },
+    
+    // الجولة 2 - الشخصيات والأدوار
     {
         type: 'role',
         question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "كلاود كيتشن"؟',
@@ -852,59 +929,26 @@ const quizQuestions = [
         correct: 'خلود',
         options: ['ملك', 'خلود', 'لميس', 'هديل']
     },
+    
+    // الجولة 3 - السنوات والمسلسلات
     {
         type: 'work',
-        question: 'كم عدد الأعمال التي شاركت فيها العنود سعود في عام 2020؟',
-        correct: '4',
-        options: ['2', '3', '4', '5']
-    },
-    
-    // الأسئلة الإضافية (40 سؤال)
-    // أسئلة عن الشخصيات
-    {
-        type: 'role',
         question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "كنا امس"؟',
         correct: 'لميس',
         options: ['لميس', 'هديل', 'شمس', 'سارة']
     },
     {
-        type: 'role',
+        type: 'work',
         question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "ضحايا حلال"؟',
         correct: 'ملك',
         options: ['ملك', 'رحمه', 'عبير', 'مريم']
     },
     {
-        type: 'role',
-        question: 'في أي مسلسل لعبت العنود سعود دور "أفنان"؟',
-        correct: 'طاش ما طاش',
-        options: ['طاش ما طاش', 'أخت镖', 'شباب البوم', 'رشحني']
+        type: 'work',
+        question: 'في أي عام بدأ العنود سعود مسيرتها الفنية؟',
+        correct: '2019',
+        options: ['2018', '2019', '2020', '2021']
     },
-    {
-        type: 'role',
-        question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "رشحني"؟',
-        correct: 'سارة',
-        options: ['سارة', 'لميس', 'شمس', 'هديل']
-    },
-    {
-        type: 'role',
-        question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "أخوت镖"؟',
-        correct: 'نورة',
-        options: ['نورة', 'مريم', 'هديل', 'رحمه']
-    },
-    {
-        type: 'role',
-        question: 'في أي مسلسل لعبت العنود سعود دور "الجدة"؟',
-        correct: 'أمي',
-        options: ['أمي', 'دكة العبيد', 'حوجن', 'عيال نوف']
-    },
-    {
-        type: 'role',
-        question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "الزواج不是你我的事"؟',
-        correct: 'منى',
-        options: ['منى', 'سارة', 'لميس', 'مريم']
-    },
-    
-    // أسئلة عن السنوات
     {
         type: 'work',
         question: 'في أي عام تم عرض مسلسل "بنات الملاكمة"؟',
@@ -917,12 +961,8 @@ const quizQuestions = [
         correct: '2023',
         options: ['2021', '2022', '2023', '2024']
     },
-    {
-        type: 'work',
-        question: 'في أي عام تم عرض مسلسل "حوجن"؟',
-        correct: '2023',
-        options: ['2021', '2022', '2023', '2024']
-    },
+    
+    // الجولة 4 - معلومات إضافية
     {
         type: 'work',
         question: 'في أي عام تم عرض مسلسل "ستوديو"؟',
@@ -943,201 +983,15 @@ const quizQuestions = [
     },
     {
         type: 'work',
-        question: 'كم عدد سنوات عمل العنود سعود في التمثيل حتى 2025؟',
-        correct: '6',
-        options: ['3', '4', '5', '6']
-    },
-    
-    // أسئلة عن نوع المسلسل
-    {
-        type: 'genre',
-        question: 'ما نوع مسلسل "مذكرة ابتزاز"؟',
-        correct: 'درامي',
-        options: ['كوميدي', 'درامي', 'رومانسي', 'تاريخي']
+        question: 'كم عدد الأعمال التي شاركت فيها العنود سعود في عام 2020؟',
+        correct: '4',
+        options: ['2', '3', '4', '5']
     },
     {
-        type: 'genre',
-        question: 'ما نوع مسلسل "لعبة كبار"؟',
-        correct: 'كوميدي',
-        options: ['كوميدي', 'درامي', 'رومانسي', 'أكشن']
-    },
-    {
-        type: 'genre',
-        question: 'ما نوع مسلسل "دكة العبيد"؟',
-        correct: 'تاريخي',
-        options: ['تاريخي', 'كوميدي', 'رومانسي', 'اجتماعي']
-    },
-    {
-        type: 'genre',
-        question: 'ما نوع مسلسل "بنات الملاكمة"؟',
-        correct: 'درامي',
-        options: ['كوميدي', 'درامي', 'رياضي', 'اجتماعي']
-    },
-    {
-        type: 'genre',
-        question: 'ما نوع مسلسل "كلاود كيتشن"؟',
-        correct: 'درامي',
-        options: ['كوميدي', 'درامي', 'طبخ', 'اجتماعي']
-    },
-    {
-        type: 'genre',
-        question: 'ما نوع مسلسل "أمي"؟',
-        correct: 'عائلي',
-        options: ['كوميدي', 'درامي', 'عائلي', 'رومانسي']
-    },
-    
-    // أسئلة مقارنة
-    {
-        type: 'compare',
-        question: 'كم عدد الأعمال التي شاركت فيها العنود سعود في 2021؟',
-        correct: '2',
-        options: ['1', '2', '3', '4']
-    },
-    {
-        type: 'compare',
-        question: 'كم عدد الأعمال التي شاركت فيها العنود سعود في 2023؟',
+        type: 'work',
+        question: 'كم عدد الأعمال التي شاركت فيها العنود سعود في عام 2023؟',
         correct: '3',
         options: ['1', '2', '3', '4']
-    },
-    {
-        type: 'compare',
-        question: 'ما أحدث أعمال العنود سعود حتى 2025؟',
-        correct: 'أمي',
-        options: ['أمي', 'حوجن', 'دكة العبيد', 'كلاود كيتشن']
-    },
-    {
-        type: 'compare',
-        question: 'ما أول عمل درامي للعنود سعود؟',
-        correct: 'بنات الملاكمة',
-        options: ['مذكرة ابتزاز', 'بنات الملاكمة', 'كنا امس', 'بعد حين']
-    },
-    {
-        type: 'compare',
-        question: 'ما اسم المسلسل الذي شارك فيه أكبر عدد من الممثلين مع العنود سعود؟',
-        correct: 'عيال نوف',
-        options: ['ستوديو', 'عيال نوف', 'دكة العبيد', 'لعبة كبار']
-    },
-    
-    // أسئلة تفصيلية
-    {
-        type: 'detail',
-        question: 'ما اسم الممثلة التي شاركت مع العنود سعود في مسلسل "بنات الملاكمة"؟',
-        correct: 'جوان',
-        options: ['جوان', 'سارة', 'لميس', 'نورة']
-    },
-    {
-        type: 'detail',
-        question: 'من هو المخرج الذي أخرج مسلسل "دكة العبيد"؟',
-        correct: 'خالد ف妖',
-        options: ['خالد ف妖', 'أحمد', 'عمر', 'علي']
-    },
-    {
-        type: 'detail',
-        question: 'ما اسم القناة التي عرضت مسلسل "مذكرة ابتزاز"؟',
-        correct: 'MBC',
-        options: ['MBC', 'ال SBC', 'أبو ظبي', 'الكويت']
-    },
-    {
-        type: 'detail',
-        question: 'كم عدد حلقات مسلسل "كلاود كيتشن"؟',
-        correct: '30',
-        options: ['15', '20', '30', '45']
-    },
-    {
-        type: 'detail',
-        question: 'ما اسم المسلسل الذي كان من تأليف تركي السبيعي؟',
-        correct: 'دكة العبيد',
-        options: ['دكة العبيد', 'حوجن', 'أمي', 'عيال نوف']
-    },
-    
-    // أسئلة متنوعة
-    {
-        type: 'misc',
-        question: 'ما الجائزة التي فازت بها العنود سعود عن دورها في "بنات الملاكمة"؟',
-        correct: 'أفضل ممثلة',
-        options: ['أفضل ممثلة', 'أفضل دور', 'جائزة الجمهور', 'جائزة الإبداع']
-    },
-    {
-        type: 'misc',
-        question: 'كم متابعين لدى العنود سعود على إنستغرام؟',
-        correct: 'أكثر من مليون',
-        options: ['500 ألف', 'أقل من مليون', 'أكثر من مليون', '2 مليون']
-    },
-    {
-        type: 'misc',
-        question: 'ما هو أول ظهور تلفزيوني للعنود سعود؟',
-        correct: 'بنات الملاكمة',
-        options: ['بنات الملاكمة', 'مذكرة ابتزاز', 'كنا امس', 'طاش ما طاش']
-    },
-    {
-        type: 'misc',
-        question: 'من هو الممثل السعودي الذي شارك مع العنود سعود في "ستوديو"؟',
-        correct: 'خالد آل خواجة',
-        options: ['خالد آل خواجة', 'نايف الرشيد', 'عبد الله المزعل', 'فيصل الدخيل']
-    },
-    {
-        type: 'misc',
-        question: 'ما اسم المسلسل الذي وصفه النقاد بأنه من أفضل أعمال العنود سعود؟',
-        correct: 'دكة العبيد',
-        options: ['دكة العبيد', 'أمي', 'حوجن', 'عيال نوف']
-    },
-    
-    // أسئلة إضافية عن الأدوار
-    {
-        type: 'role',
-        question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "طاش ما طاش"؟',
-        correct: 'ضيوف',
-        options: ['ضيوف', 'مريم', 'سارة', 'نورة']
-    },
-    {
-        type: 'role',
-        question: 'في أي مسلسل لعبت العنود سعود دور "نورة"؟',
-        correct: 'أخت镖',
-        options: ['أخت镖', 'بنات الملاكمة', 'ستوديو', 'أمي']
-    },
-    {
-        type: 'role',
-        question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "رجال，不代表"؟',
-        correct: 'شيماء',
-        options: ['شيماء', 'سارة', 'لميس', 'مريم']
-    },
-    
-    // أسئلة إضافية عن السنوات والتفاصيل
-    {
-        type: 'work',
-        question: 'في أي عام بدأ عرض مسلسل "كلاود كيتشن"؟',
-        correct: '2023',
-        options: ['2021', '2022', '2023', '2024']
-    },
-    {
-        type: 'work',
-        question: 'ما اسم المخرجة التي أشرفت على مسلسل "أمي"؟',
-        correct: 'منى',
-        options: ['منى', 'سارة', 'نورة', 'لميس']
-    },
-    {
-        type: 'work',
-        question: 'كم عدد أجزاء مسلسل "بنات الملاكمة"؟',
-        correct: 'جزء واحد',
-        options: ['جزء واحد', 'جزءان', 'ثلاثة أجزاء', 'أربعة أجزاء']
-    },
-    {
-        type: 'work',
-        question: 'ما اسم المسلسل الذي تناول موضوع المطاعم الفاخرة؟',
-        correct: 'كلاود كيتشن',
-        options: ['كلاود كيتشن', 'دكة العبيد', 'ستوديو', 'أمي']
-    },
-    {
-        type: 'work',
-        question: 'ما اسم المسلسل الذي كان من إنتاج المؤسسة العامة للترفيه؟',
-        correct: 'أمي',
-        options: ['أمي', 'دكة العبيد', 'حوجن', 'عيال نوف']
-    },
-    {
-        type: 'work',
-        question: 'في أي موسم رمضاني تم عرض مسلسل "لعبة كبار"؟',
-        correct: 'رمضان 2021',
-        options: ['رمضان 2020', 'رمضان 2021', 'رمضان 2022', 'رمضان 2023']
     }
 ];
 
@@ -1148,16 +1002,23 @@ let score = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
 
+// Game state
+let currentRound = 1;
+const totalRounds = 4;
+const questionsPerRound = 5;
+const totalQuestions = 20;
+
 // Start the game
 function startGame() {
     // Reset state
     currentQuestionIndex = 0;
+    currentRound = 1;
     score = 0;
     correctAnswers = 0;
     wrongAnswers = 0;
     
-    // Select 5 random questions
-    currentQuestions = shuffleArray([...quizQuestions]).slice(0, 5);
+    // Select 20 random questions (5 rounds × 4 questions)
+    currentQuestions = shuffleArray([...quizQuestions]).slice(0, totalQuestions);
     
     // Hide start screen and result screen, show quiz screen
     document.getElementById('gameStart').style.display = 'none';
@@ -1172,6 +1033,10 @@ function startGame() {
 function showQuestion() {
     const question = currentQuestions[currentQuestionIndex];
     
+    // Calculate round and question within round
+    const questionInRound = (currentQuestionIndex % questionsPerRound) + 1;
+    currentRound = Math.floor(currentQuestionIndex / questionsPerRound) + 1;
+    
     // Add entrance animation to quiz screen
     const quizScreen = document.getElementById('quizScreen');
     quizScreen.style.opacity = '0';
@@ -1183,10 +1048,10 @@ function showQuestion() {
         quizScreen.style.transform = 'scale(1)';
     }, 50);
     
-    // Update progress
-    document.getElementById('questionProgress').textContent = 'السؤال ' + (currentQuestionIndex + 1) + ' من 5';
+    // Update progress with round info
+    document.getElementById('questionProgress').textContent = 'الجولة ' + currentRound + ' | السؤال ' + questionInRound + ' من ' + questionsPerRound;
     document.getElementById('currentScore').textContent = 'النتيجة: ' + score;
-    document.getElementById('progressFill').style.width = ((currentQuestionIndex / 5) * 100) + '%';
+    document.getElementById('progressFill').style.width = ((currentQuestionIndex / totalQuestions) * 100) + '%';
     
     // Update question with animation
     document.getElementById('questionNumber').textContent = 'السؤال #' + (currentQuestionIndex + 1);
@@ -1292,7 +1157,7 @@ function checkAnswer(selected, correct) {
 function nextQuestion() {
     currentQuestionIndex++;
     
-    if (currentQuestionIndex < 5) {
+    if (currentQuestionIndex < totalQuestions) {
         showQuestion();
     } else {
         showResults();
@@ -1451,4 +1316,3 @@ function scrollToSection(sectionId) {
         });
     }
 }
-

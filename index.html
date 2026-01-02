@@ -57,14 +57,17 @@
             <h2>أعمالي الدرامية</h2>
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="2025">2025</button>
-                <button class="filter-btn" data-filter="2023">2023</button>
-                <button class="filter-btn" data-filter="2022">2022</button>
-                <button class="filter-btn" data-filter="2021">2021</button>
-                <button class="filter-btn" data-filter="2020">2020</button>
                 <button class="filter-btn" data-filter="2019">2019</button>
+                <button class="filter-btn" data-filter="2020">2020</button>
+                <button class="filter-btn" data-filter="2021">2021</button>
+                <button class="filter-btn" data-filter="2022">2022</button>
+                <button class="filter-btn" data-filter="2023">2023</button>
+                <button class="filter-btn" data-filter="2025">2025</button>
             </div>
             <ul class="works tv-works">
+                <li data-year="2019" onclick="showSeriesSummary('بنات الملاكمة', '2019-2020', '🎭 دور شمس')">
+                    <div class="work-info"><strong>بنات الملاكمة</strong><span class="character-name">🎭 شمس</span></div><span class="year">2019-2020</span>
+                </li>
                 <li data-year="2020" onclick="showSeriesSummary('مذكرة ابتزاز', '2020', '🎭 دور هديل')">
                     <div class="work-info"><strong>مذكرة ابتزاز</strong><span class="character-name">🎭 هديل</span></div><span class="year">2020</span>
                 </li>
@@ -76,9 +79,6 @@
                 </li>
                 <li data-year="2020" onclick="showSeriesSummary('ضحايا حلال', '2020', '🎭 دور ملك')">
                     <div class="work-info"><strong>ضحايا حلال</strong><span class="character-name">🎭 ملك</span></div><span class="year">2020</span>
-                </li>
-                <li data-year="2019" onclick="showSeriesSummary('بنات الملاكمة', '2019-2020', '🎭 دور شمس')">
-                    <div class="work-info"><strong>بنات الملاكمة</strong><span class="character-name">🎭 شمس</span></div><span class="year">2019-2020</span>
                 </li>
                 <li data-year="2021" onclick="showSeriesSummary('ستوديو', '2021', '🎭 دور أميرة')">
                     <div class="work-info"><strong>ستوديو</strong><span class="character-name">🎭 أميرة</span></div><span class="year">2021</span>
@@ -303,50 +303,136 @@
         </section>
 
         <!-- Fan Messages Section -->
-        <section class="section" id="messages">
-            <h2>رسائل المعجبين <span id="totalMessages" style="font-size: 0.7em; color: #8b949e;">(0)</span></h2>
-            <p style="text-align: center; margin-bottom: 30px; color: #8b949e;">شاركنا رأيك وأرسل رسالة للعنود سعود</p>
-            <form class="fan-form" id="fanForm">
-                <input type="text" id="fanName" placeholder="اسمك" required>
-                <textarea id="fanMessage" rows="6" placeholder="اكتب رسالتك للعنود سعود هنا..." required></textarea>
-                <button type="submit">إرسال الرسالة</button>
-            </form>
+        <section class="section messages-section" id="messages">
+            <div class="section-header">
+                <h2>رسائل المعجبين <span id="totalMessages" style="font-size: 0.7em; color: #8b949e;">(0)</span></h2>
+            </div>
+            <p style="text-align: center; margin-bottom: 30px; color: #8b949e;">شاركنا رأيك وأرسل رسالة للعنود سعود ✨</p>
+            
+            <!-- Add Message Form -->
+            <div class="add-message-card">
+                <div class="add-message-header">
+                    <span class="add-icon">✉️</span>
+                    <h3>إرسال رسالة جديدة</h3>
+                </div>
+                <form class="fan-form" id="fanForm">
+                    <div class="form-group">
+                        <input type="text" id="fanName" placeholder="👤 اسمك الكريم" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="fanMessage" rows="5" placeholder="💭 اكتب رسالتك للعنود سعود هنا..." required></textarea>
+                    </div>
+                    <button type="submit" class="send-message-btn">
+                        <span>🚀</span> إرسال الرسالة
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Messages Display -->
             <div class="messages-display" id="messagesDisplay">
-                <div class="no-messages" id="noMessages"><p style="font-size: 1.2em; margin-bottom: 10px;">💬</p><p>لا توجد رسائل حالياً. كن أول من يكتب رسالة للعنود سعود!</p></div>
+                <div class="no-messages" id="noMessages">
+                    <div class="empty-icon">💬</div>
+                    <h3>لا توجد رسائل حالياً</h3>
+                    <p>كن أول من يكتب رسالة للعنود سعود!</p>
+                </div>
             </div>
         </section>
 
-        <!-- Social Media Section -->
-        <section class="section" id="social">
-            <h2>تابعوني على وسائل التواصل</h2>
-            <div class="social-links">
-                <a href="https://instagram.com/anoudsaud" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>إنستغرام</a>
-                <a href="https://twitter.com/anoudsaud" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>إكس (تويتر)</a>
-                <a href="https://facebook.com/anoudsaud" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>فيسبوك</a>
-            </div>
-        </section>
     </div>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <div class="social-container">
+            <h2 class="social-title">تابعني على منصات التواصل</h2>
+            <p class="social-subtitle">ابقى على اطلاع بآخر أخباري وأعمالي</p>
+            <div class="social-links">
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@theanoudsaud?_r=1&_t=ZS-92icnJQG7Sm" target="_blank" class="social-card tiktok" title="TikTok">
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                    </div>
+                    <div class="social-info">
+                        <span class="social-name">TikTok</span>
+                        <span class="social-handle">@theanoudsaud</span>
+                    </div>
+                    <div class="social-arrow">→</div>
+                </a>
+
+                <!-- X (Twitter) -->
+                <a href="https://x.com/theanoudsaud?s=11&t=iQp_FNpYhiY0DlXT3A9Pfg" target="_blank" class="social-card twitter" title="X (Twitter)">
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </div>
+                    <div class="social-info">
+                        <span class="social-name">X (تويتر)</span>
+                        <span class="social-handle">@theanoudsaud</span>
+                    </div>
+                    <div class="social-arrow">→</div>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/share/17u8F7q9X2/" target="_blank" class="social-card facebook" title="Facebook">
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </div>
+                    <div class="social-info">
+                        <span class="social-name">Facebook</span>
+                        <span class="social-handle">العنود سعود</span>
+                    </div>
+                    <div class="social-arrow">→</div>
+                </a>
+
+                <!-- Snapchat -->
+                <a href="https://www.snapchat.com/add/theanoudsoud" target="_blank" class="social-card snapchat" title="Snapchat">
+                    <div class="social-icon">
+                        <span class="snapchat-emoji">👻</span>
+                    </div>
+                    <div class="social-info">
+                        <span class="social-name">Snapchat</span>
+                        <span class="social-handle">@theanoudsoud</span>
+                    </div>
+                    <div class="social-arrow">→</div>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/theanoudsaud?igsh=aW1sMm5lMmxvNXh5" target="_blank" class="social-card instagram" title="Instagram">
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                        </svg>
+                    </div>
+                    <div class="social-info">
+                        <span class="social-name">Instagram</span>
+                        <span class="social-handle">@theanoudsaud</span>
+                    </div>
+                    <div class="social-arrow">→</div>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <p>&copy; <span id="year"></span> العنود سعود. جميع الحقوق محفوظة.</p>
         <p style="margin-top: 10px; color: #d4af37;">✨ تم البرمجة بواسطة حبيبة الأمير ✨</p>
-        <p>صُنع بحب ♥</p>
+        <p>صُنع بحب</p>
     </footer>
 
     <!-- Series Summary Modal -->
     <div class="series-summary-modal" id="seriesSummaryModal">
         <div class="series-summary-content">
             <div class="series-summary-header">
-                <h3 id="modalSeriesTitle">عنوان المسلسل</h3>
-                <button class="close-summary-btn" onclick="closeSeriesSummary()">×</button>
+                <h3 id="modalSeriesTitle"></h3>
             </div>
             <div class="series-summary-body">
-                <span class="year-badge" id="modalSeriesYear">2020</span>
-                <p id="modalSeriesSummary">ملخص المسلسل...</p>
+                <span class="year-badge" id="modalSeriesYear"></span>
+                <p id="modalSeriesSummary"></p>
             </div>
         </div>
     </div>
