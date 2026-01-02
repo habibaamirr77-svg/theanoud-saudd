@@ -201,10 +201,10 @@ var seriesData = {
     'ضحايا حلال': { year: '2020', role: 'ملك', summary: 'مسلسل يتناول قصص واقعية.' },
     'بنات الملاكمة': { year: '2019-2020', role: 'شمس', summary: 'مسلسل يروي قصص فتيات يمارسن الملاكمة.' },
     'ستوديو': { year: '2021', role: 'أميرة', summary: 'مسلسل يستكشف عالم الإنتاج الفني.' },
-    'لعبة كبار': { year: '2021', role: 'مرزوقة', summary: 'مسلسل كوميدي.' },
+    'لعبة كبار': { year: '2021', role: 'مرزوقة', summary: 'فيلم كوميدي.' },
     'عيال نوف': { year: '2022', role: 'صمود', summary: 'مسلسل عائلي.' },
     'دكة العبيد': { year: '2023', role: 'رحمه', summary: 'مسلسل تاريخي.' },
-    'حوجن': { year: '2023', role: 'جمارى', summary: 'مسلسل سعودي معاصر.' },
+    'حوجن': { year: '2023', role: 'جمارى', summary: 'فيلم سعودي معاصر.' },
     'كلاود كيتشن': { year: '2023', role: 'عبير', summary: 'مسلسل يروي قصص الطهاة.' },
     'أمي': { year: '2025', role: 'مريم', summary: 'مسلسل يروي قصص الأمومة.' }
 };
@@ -389,20 +389,96 @@ document.addEventListener('DOMContentLoaded', function() {
     initTimeline();
 });
 
-// Post Upload Functions - Professional Version
+// ========================================
+// API Configuration
+// ========================================
+
+const API_URL = window.location.origin;
+
+// Generate unique user ID
+function getUserId() {
+    let userId = localStorage.getItem('userId');
+    if (!userId) {
+        userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('userId', userId);
+    }
+    return userId;
+}
+
+// Post Upload Functions - Professional Version with Server API
 var posts = [];
 var currentUploadType = 'image';
 var postsPerPage = 6;
 var currentPage = 1;
 
-// Initialize posts
-function initPosts() {
-    var saved = localStorage.getItem('anoudPosts');
-    if (saved) {
-        posts = JSON.parse(saved);
+// Initialize posts - load from server
+async function initPosts() {
+    try {
+        const response = await fetch(API_URL + '/api/posts?userId=' + getUserId());
+        if (response.ok) {
+            posts = await response.json();
+        } else {
+            // Fallback to localStorage
+            var saved = localStorage.getItem('anoudPosts');
+            if (saved) {
+                posts = JSON.parse(saved);
+            }
+        }
+    } catch (error) {
+        console.log('Using localStorage for posts');
+        var saved = localStorage.getItem('anoudPosts');
+        if (saved) {
+            posts = JSON.parse(saved);
+        }
     }
     updatePostCount();
     renderPosts();
+}
+
+// Save post to server
+async function savePostToServer(post) {
+    try {
+        const response = await fetch(API_URL + '/api/posts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(post)
+        });
+        return response.ok;
+    } catch (error) {
+        console.error('Error saving post to server:', error);
+        return false;
+    }
+}
+
+// Delete post from server
+async function deletePostFromServer(postId) {
+    try {
+        const response = await fetch(API_URL + '/api/posts/' + postId, {
+            method: 'DELETE'
+        });
+        return response.ok;
+    } catch (error) {
+        console.error('Error deleting post from server:', error);
+        return false;
+    }
+}
+
+// Toggle like on server
+async function togglePostLikeOnServer(postId, action) {
+    try {
+        const response = await fetch(API_URL + '/api/posts/' + postId + '/like', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                userId: getUserId(),
+                action: action
+            })
+        });
+        return response.ok;
+    } catch (error) {
+        console.error('Error toggling like:', error);
+        return false;
+    }
 }
 
 function selectUploadType(type) {
@@ -511,14 +587,21 @@ function addPost(type, content) {
     };
     
     posts.unshift(post);
+    
+    // Save to server and localStorage
+    savePostToServer(post);
     savePosts();
+    
     updatePostCount();
     renderPosts();
     showNotification('تم نشر المنشور بنجاح! 🎉');
 }
 
-function deletePost(id) {
+async function deletePost(id) {
     if (!confirm('هل أنت متأكد من حذف هذا المنشور؟')) return;
+    
+    // Delete from server
+    await deletePostFromServer(id);
     
     posts = posts.filter(function(p) { return p.id !== id; });
     savePosts();
@@ -527,12 +610,16 @@ function deletePost(id) {
     showNotification('تم حذف المنشور');
 }
 
-function toggleLike(id) {
+async function toggleLike(id) {
     var post = posts.find(function(p) { return p.id === id; });
     if (!post) return;
     
     post.liked = !post.liked;
     post.likes += post.liked ? 1 : -1;
+    
+    // Update on server
+    await togglePostLikeOnServer(id, post.liked ? 'like' : 'unlike');
+    
     savePosts();
     renderPosts();
 }
@@ -688,15 +775,76 @@ function getTimeAgo(dateString) {
     return date.toLocaleDateString('ar-SA');
 }
 
-// Fan Messages Section - Improved with better visibility
+// Fan Messages Section - Improved with better visibility and Server API
 var messages = [];
 
-function initMessages() {
-    var saved = localStorage.getItem('anoudMessages');
-    if (saved) {
-        messages = JSON.parse(saved);
+// Initialize messages - load from server
+async function initMessages() {
+    try {
+        const response = await fetch(API_URL + '/api/messages?userId=' + getUserId());
+        if (response.ok) {
+            messages = await response.json();
+        } else {
+            // Fallback to localStorage
+            var saved = localStorage.getItem('anoudMessages');
+            if (saved) {
+                messages = JSON.parse(saved);
+            }
+        }
+    } catch (error) {
+        console.log('Using localStorage for messages');
+        var saved = localStorage.getItem('anoudMessages');
+        if (saved) {
+            messages = JSON.parse(saved);
+        }
     }
     renderMessages();
+}
+
+// Save message to server
+async function saveMessageToServer(message) {
+    try {
+        const response = await fetch(API_URL + '/api/messages', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(message)
+        });
+        return response.ok;
+    } catch (error) {
+        console.error('Error saving message to server:', error);
+        return false;
+    }
+}
+
+// Delete message from server
+async function deleteMessageFromServer(messageId) {
+    try {
+        const response = await fetch(API_URL + '/api/messages/' + messageId, {
+            method: 'DELETE'
+        });
+        return response.ok;
+    } catch (error) {
+        console.error('Error deleting message from server:', error);
+        return false;
+    }
+}
+
+// Toggle like on server
+async function toggleMessageLikeOnServer(messageId, action) {
+    try {
+        const response = await fetch(API_URL + '/api/messages/' + messageId + '/like', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                userId: getUserId(),
+                action: action
+            })
+        });
+        return response.ok;
+    } catch (error) {
+        console.error('Error toggling message like:', error);
+        return false;
+    }
 }
 
 function renderMessages() {
@@ -783,7 +931,7 @@ function getTimeAgo(timestamp) {
     return date.toLocaleDateString('ar-SA');
 }
 
-function likeMessage(id, btn) {
+async function likeMessage(id, btn) {
     var msg = messages.find(function(m) { return m.id === id; });
     if (msg) {
         msg.liked = !msg.liked;
@@ -802,6 +950,9 @@ function likeMessage(id, btn) {
             likesCount.textContent = msg.likes;
         }
         
+        // Update on server
+        await toggleMessageLikeOnServer(id, msg.liked ? 'like' : 'unlike');
+        
         saveMessages();
         
         // Show notification
@@ -813,8 +964,11 @@ function saveMessages() {
     localStorage.setItem('anoudMessages', JSON.stringify(messages));
 }
 
-function deleteMessage(id) {
+async function deleteMessage(id) {
     if (!confirm('هل أنت متأكد من حذف هذه الرسالة؟')) return;
+    
+    // Delete from server
+    await deleteMessageFromServer(id);
     
     messages = messages.filter(function(m) { return m.id !== id; });
     saveMessages();
@@ -825,7 +979,7 @@ function deleteMessage(id) {
 // Form submission
 var fanForm = document.getElementById('fanForm');
 if (fanForm) {
-    fanForm.addEventListener('submit', function(e) {
+    fanForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         var name = document.getElementById('fanName').value.trim();
@@ -843,6 +997,9 @@ if (fanForm) {
             };
             
             messages.unshift(newMessage);
+            
+            // Save to server and localStorage
+            await saveMessageToServer(newMessage);
             saveMessages();
             renderMessages();
             
@@ -907,7 +1064,7 @@ const quizQuestions = [
     },
     {
         type: 'work',
-        question: 'ما اسم المسلسل الذي لعبت فيه العنود سعود دور "مرزوقة"؟',
+        question: 'ما اسم الفيلم الذي لعبت فيه العنود سعود دور "مرزوقة"؟',
         correct: 'لعبة كبار',
         options: ['ستوديو', 'لعبة كبار', 'عيال نوف', 'مذكرة ابتزاز']
     },
@@ -919,7 +1076,7 @@ const quizQuestions = [
     },
     {
         type: 'work',
-        question: 'ما اسم المسلسل الذي لعبت فيه العنود سعود دور "جمارى"؟',
+        question: 'ما اسم الفيلم الذي لعبت فيه العنود سعود دور "جمارى"؟',
         correct: 'حوجن',
         options: ['دكة العبيد', 'حوجن', 'كلاود كيتشن', 'أمي']
     },
@@ -977,7 +1134,7 @@ const quizQuestions = [
     },
     {
         type: 'work',
-        question: 'في أي عام تم عرض مسلسل "لعبة كبار"؟',
+        question: 'في أي عام تم عرض فيلم "لعبة كبار"؟',
         correct: '2021',
         options: ['2019', '2020', '2021', '2022']
     },
@@ -1193,6 +1350,7 @@ function showResults() {
     const resultMessage = document.getElementById('resultMessage');
     const resultStats = document.querySelector('.result-stats');
     const resultActions = document.querySelector('.result-actions');
+    const scorePercentageEl = document.getElementById('scorePercentage');
     
     // Reset and animate elements
     finalScore.style.opacity = '0';
@@ -1211,33 +1369,68 @@ function showResults() {
     resultStats.style.transform = 'translateY(30px)';
     resultActions.style.opacity = '0';
     resultActions.style.transform = 'translateY(20px)';
+    if (scorePercentageEl) {
+        scorePercentageEl.style.opacity = '0';
+        scorePercentageEl.style.transform = 'scale(0.5)';
+    }
+    
+    // Calculate percentage
+    const percentage = Math.round((score / totalQuestions) * 5); // Each question is 20 points
     
     // Update values
-    document.getElementById('finalScore').textContent = score;
+    document.getElementById('finalScore').textContent = score + ' / ' + (totalQuestions * 20);
     document.getElementById('correctAnswers').textContent = correctAnswers;
     document.getElementById('wrongAnswers').textContent = wrongAnswers;
+    if (scorePercentageEl) {
+        scorePercentageEl.textContent = percentage + '%';
+    }
     
-    // Set emoji based on score
+    // Set emoji, title and message based on score
     var emoji = '💪';
     var title = 'حاول مرة أخرى!';
     var message = 'لا بأس! حاول مرة أخرى!';
+    var grade = 'F';
     
     if (score >= 100) {
         emoji = '🏆';
         title = 'ممتاز!';
         message = 'أحسنت! أنت خبير حقيقي في أعمال العنود سعود!';
+        grade = 'A+';
+    } else if (score >= 90) {
+        emoji = '🌟';
+        title = 'ممتاز جداً!';
+        message = 'أداء استثنائي! تعرفين العنود سعود جداً!';
+        grade = 'A';
     } else if (score >= 80) {
         emoji = '🌟';
         title = 'رائع جداً!';
         message = 'معرفة ممتازة بأعمال العنود سعود!';
-    } else if (score >= 60) {
+        grade = 'B+';
+    } else if (score >= 70) {
         emoji = '👍';
         title = 'جيد جداً!';
         message = 'أداء جيد! استمر في التعلم عن أعمالها!';
+        grade = 'B';
+    } else if (score >= 60) {
+        emoji = '👍';
+        title = 'جيد!';
+        message = 'أداء مقبول! يمكنك تحسينه بالمشاهدة!';
+        grade = 'C+';
+    } else if (score >= 50) {
+        emoji = '💪';
+        title = 'مقبول!';
+        message = 'لديك معرفة أساسية. تابع المشاهدة!';
+        grade = 'C';
     } else if (score >= 40) {
         emoji = '💪';
         title = 'جيد!';
         message = 'لديك معرفة جيدة. يمكنك تحسينها بالمزيد من المشاهدة!';
+        grade = 'D';
+    } else {
+        emoji = '📚';
+        title = 'حاول مرة أخرى!';
+        message = 'لا بأس! شاهد أعمال العنود سعود وحاول مجدداً!';
+        grade = 'F';
     }
     
     resultEmoji.textContent = emoji;
@@ -1272,6 +1465,11 @@ function showResults() {
         animateValue(finalScore, 0, score, 1000);
         animateValue(correctAnswersEl, 0, correctAnswers, 1000);
         animateValue(wrongAnswersEl, 0, wrongAnswers, 1000);
+        if (scorePercentageEl) {
+            animateValue(scorePercentageEl, 0, percentage, 1000);
+            scorePercentageEl.style.opacity = '1';
+            scorePercentageEl.style.transform = 'scale(1)';
+        }
     }, 550);
     
     setTimeout(function() {

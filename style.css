@@ -201,6 +201,18 @@ nav a:hover {
     transition: all 0.3s ease;
 }
 
+.work-type {
+    display: inline-block;
+    background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+    color: #0d1117;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.75em;
+    font-weight: bold;
+    margin-left: 8px;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
 .works li:hover .character-name {
     background: linear-gradient(135deg, #d4af37 0%, #911e69 100%);
     color: #0d1117;
@@ -1798,6 +1810,55 @@ nav a:hover {
     margin-bottom: 30px;
 }
 
+/* Score Display */
+.score-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.score-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #d4af37 0%, #b8962e 100%);
+    border-radius: 50%;
+    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
+    animation: scoreGlow 2s ease-in-out infinite;
+}
+
+@keyframes scoreGlow {
+    0%, 100% { box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4); }
+    50% { box-shadow: 0 15px 50px rgba(212, 175, 55, 0.6); }
+}
+
+.score-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #0d1117;
+    line-height: 1;
+}
+
+.score-total {
+    font-size: 0.9em;
+    color: rgba(13, 17, 23, 0.7);
+    font-weight: 500;
+}
+
+.score-percentage {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #d4af37;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Result Stats */
 .result-stats {
     display: flex;
     justify-content: center;
@@ -1812,19 +1873,58 @@ nav a:hover {
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(145, 30, 105, 0.1) 100%);
     border-radius: 15px;
     border: 2px solid rgba(212, 175, 55, 0.3);
+    min-width: 150px;
+}
+
+.stat-icon {
+    font-size: 1.5em;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.stat.correct {
+    border-color: rgba(46, 204, 113, 0.4);
+    background: rgba(46, 204, 113, 0.1);
+}
+
+.stat.correct .stat-value {
+    color: #2ecc71;
+}
+
+.stat.wrong {
+    border-color: rgba(231, 76, 60, 0.4);
+    background: rgba(231, 76, 60, 0.1);
+}
+
+.stat.wrong .stat-value {
+    color: #e74c3c;
 }
 
 .stat-value {
     display: block;
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 700;
     color: #d4af37;
 }
 
 .stat-label {
     color: #8b949e;
-    font-size: 1em;
+    font-size: 0.9em;
     margin-top: 5px;
+    display: block;
+}
+
+/* Result Grade */
+.result-grade {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding: 10px 25px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 30px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    display: inline-block;
 }
 
 .result-actions {
@@ -1832,6 +1932,23 @@ nav a:hover {
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
+}
+
+/* Light mode for result screen */
+body.light-mode .score-circle {
+    box-shadow: 0 10px 40px rgba(184, 150, 46, 0.4);
+}
+
+body.light-mode .score-value {
+    color: #ffffff;
+}
+
+body.light-mode .score-total {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+body.light-mode .score-percentage {
+    color: #b8962e;
 }
 
 /* Light Mode Styles */

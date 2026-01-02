@@ -84,16 +84,16 @@
                     <div class="work-info"><strong>ستوديو</strong><span class="character-name">🎭 أميرة</span></div><span class="year">2021</span>
                 </li>
                 <li data-year="2021" onclick="showSeriesSummary('لعبة كبار', '2021', '🎭 دور مرزوقة')">
-                    <div class="work-info"><strong>لعبة كبار</strong><span class="character-name">🎭 مرزوقة</span></div><span class="year">2021</span>
+                    <div class="work-info"><strong>لعبة كبار</strong><span class="work-type">🎬 فيلم</span><span class="character-name">🎭 مرزوقة</span></div><span class="year">2021</span>
+                </li>
+                <li data-year="2023" onclick="showSeriesSummary('حوجن', '2023', '🎭 دور جمارى')">
+                    <div class="work-info"><strong>حوجن</strong><span class="work-type">🎬 فيلم</span><span class="character-name">🎭 جمارى</span></div><span class="year">2023</span>
                 </li>
                 <li data-year="2022" onclick="showSeriesSummary('عيال نوف', '2022', '🎭 دور صمود')">
                     <div class="work-info"><strong>عيال نوف</strong><span class="character-name">🎭 صمود</span></div><span class="year">2022</span>
                 </li>
                 <li data-year="2023" onclick="showSeriesSummary('دكة العبيد', '2023', '🎭 دور رحمه')">
                     <div class="work-info"><strong>دكة العبيد</strong><span class="character-name">🎭 رحمه</span></div><span class="year">2023</span>
-                </li>
-                <li data-year="2023" onclick="showSeriesSummary('حوجن', '2023', '🎭 دور جمارى')">
-                    <div class="work-info"><strong>حوجن</strong><span class="character-name">🎭 جمارى</span></div><span class="year">2023</span>
                 </li>
                 <li data-year="2023" onclick="showSeriesSummary('كلاود كيتشن', '2023', '🎭 دور عبير')">
                     <div class="work-info"><strong>كلاود كيتشن</strong><span class="character-name">🎭 عبير</span></div><span class="year">2023</span>
@@ -179,11 +179,31 @@
                     <div class="result-icon" id="resultEmoji">🏆</div>
                     <h3 id="resultTitle">ممتاز!</h3>
                     <p id="resultMessage">أحسنت!</p>
-                    <div class="result-stats">
-                        <div class="stat"><span class="stat-value" id="finalScore">0</span><span class="stat-label">النقاط</span></div>
-                        <div class="stat"><span class="stat-value" id="correctAnswers">0</span><span class="stat-label">صحيح</span></div>
-                        <div class="stat"><span class="stat-value" id="wrongAnswers">0</span><span class="stat-label">خطأ</span></div>
+                    
+                    <!-- Score Display -->
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span class="score-value" id="finalScore">0</span>
+                            <span class="score-total">/ 400</span>
+                        </div>
+                        <div class="score-percentage" id="scorePercentage">0%</div>
                     </div>
+                    
+                    <div class="result-stats">
+                        <div class="stat correct">
+                            <span class="stat-icon">✅</span>
+                            <span class="stat-value" id="correctAnswers">0</span>
+                            <span class="stat-label">إجابة صحيحة</span>
+                        </div>
+                        <div class="stat wrong">
+                            <span class="stat-icon">❌</span>
+                            <span class="stat-value" id="wrongAnswers">0</span>
+                            <span class="stat-label">إجابة خاطئة</span>
+                        </div>
+                    </div>
+                    
+                    <div class="result-grade" id="resultGrade"></div>
+                    
                     <div class="result-actions">
                         <button class="game-btn" onclick="startGame()">🔄 إعادة المحاولة</button>
                         <button class="game-btn secondary" onclick="scrollToSection('tvseries')">📺 مشاهدة الأعمال</button>
