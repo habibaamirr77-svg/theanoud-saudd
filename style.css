@@ -7,45 +7,908 @@
 
 body {
     font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
-    background-color: #0d1117;
-    color: #e6edf3;
+    background-color: #0a0f1a;
+    color: #e8f4f8;
     line-height: 1.8;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* Header Styles */
+/* Winter Snow Effect */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: #fff;
+    font-size: 1em;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    pointer-events: none;
+    z-index: 9999;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.3;
+    }
+}
+
+/* Header Styles - Winter Theme */
 header {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0d1117 100%);
+    background: linear-gradient(180deg, #1a2a3a 0%, #0d1520 50%, #050a10 100%);
     background-image: 
-        radial-gradient(ellipse at 20% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(145, 30, 105, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(100, 180, 200, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(150, 200, 220, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(200, 230, 250, 0.08) 0%, transparent 60%),
         url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"1\" fill=\"rgba(255,255,255,0.15)\"/></svg>');
     background-size: 100%, 100%, 100%, 80px 80px;
-    color: #e6edf3;
+    color: #e8f4f8;
     text-align: center;
     padding: 60px 20px;
     position: relative;
     overflow: hidden;
-    border-bottom: 3px solid #911e69;
+    border-bottom: 3px solid #4a8fa8;
 }
 
 header::before {
-    content: '';
+    content: '❄️';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-    background-size: 100px 100px;
+    top: 10px;
+    left: 10px;
+    font-size: 2em;
+    animation: snowFloat 4s ease-in-out infinite;
+}
+
+header::after {
+    content: '❄️';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5em;
+    animation: snowFloat 3s ease-in-out infinite reverse;
+}
+
+@keyframes snowFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    50% { transform: translateY(-10px) rotate(10deg); opacity: 1; }
 }
 
 header h1 {
     font-size: 3em;
     margin-bottom: 10px;
     position: relative;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #87ceeb, #b0e0e6, #add8e6, #87ceeb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
 }
+
+@keyframes shimmer {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.2); }
+}
+
+/* Navigation - Winter Theme */
+nav {
+    background: linear-gradient(180deg, #1a2535 0%, #0d1520 100%);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(100, 180, 200, 0.2);
+    border-bottom: 1px solid rgba(100, 180, 200, 0.2);
+}
+
+nav a {
+    color: #b8d4e3;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+nav a:hover {
+    background: linear-gradient(135deg, #4a8fa8 0%, #6ab0c8 100%);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 143, 168, 0.4);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 60px;
+}
+
+.section h2 {
+    color: #5a9cb8;
+    font-size: 2em;
+    border-bottom: 3px solid #3d7a94;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.section h2::after {
+    content: '❄️';
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    width: 100px;
+    height: 3px;
+    background-color: #5a9cb8;
+}
+
+/* About Section - Winter Theme */
+#about {
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(100, 180, 200, 0.15);
+    border: 1px solid rgba(100, 180, 200, 0.2);
+}
+
+/* Works Section - Winter Theme */
+.works li {
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-right: 4px solid #4a8fa8;
+    position: relative;
+    overflow: hidden;
+}
+
+.works li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 180, 200, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.works li:hover::before {
+    left: 100%;
+}
+
+.works li:hover {
+    transform: translateX(15px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(100, 180, 200, 0.2);
+    border-right-color: #87ceeb;
+}
+
+.work-info strong {
+    color: #87ceeb;
+    font-size: 1.2em;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.works li:hover .work-info strong {
+    text-shadow: 0 0 15px rgba(135, 206, 235, 0.5);
+}
+
+.character-name {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(74, 143, 168, 0.3) 0%, rgba(90, 156, 184, 0.2) 100%);
+    color: #b8d4e3;
+    padding: 5px 12px;
+    border-radius: 18px;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(100, 180, 200, 0.3);
+}
+
+.works li:hover .character-name {
+    background: linear-gradient(135deg, #4a8fa8 0%, #6ab0c8 100%);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(74, 143, 168, 0.5);
+}
+
+.works li .year {
+    display: inline-block;
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+    padding: 3px 12px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+    animation: yearPulse 2s ease-in-out infinite;
+    white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(74, 143, 168, 0.3);
+}
+
+@keyframes yearPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.works li:hover .year {
+    background: linear-gradient(135deg, #6ab0c8 0%, #4a8fa8 100%);
+    box-shadow: 0 0 15px rgba(74, 143, 168, 0.5);
+}
+
+/* Section Title Animation */
+.section h2 {
+    color: #5a9cb8;
+    font-size: 2em;
+    border-bottom: 3px solid #3d7a94;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    width: 100px;
+    height: 3px;
+    background-color: #5a9cb8;
+}
+
+.section h2::before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #87ceeb, transparent);
+    animation: titleShine 3s ease-in-out infinite;
+}
+
+@keyframes titleShine {
+    0%, 100% { width: 100px; left: 0; }
+    50% { width: 100%; left: 0; }
+}
+
+/* Filter Buttons Animation */
+.filter-btn {
+    padding: 10px 25px;
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    border: 2px solid #3d7a94;
+    border-radius: 30px;
+    color: #b8d4e3;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(100, 180, 200, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.filter-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.filter-btn:hover {
+    border-color: #87ceeb;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(100, 180, 200, 0.3);
+    color: #fff;
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: #fff;
+    border-color: #87ceeb;
+    box-shadow: 0 5px 20px rgba(100, 180, 200, 0.4);
+}
+
+/* Social Section - Winter Theme */
+.social-section {
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    padding: 60px 20px;
+    margin: 0 -40px 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(100, 180, 200, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3d7a94, #87ceeb, #3d7a94);
+}
+
+.social-title {
+    color: #87ceeb;
+    font-size: 2em;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.social-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #87ceeb, transparent);
+}
+
+.social-card:hover .social-name {
+    color: #87ceeb;
+}
+
+/* Messages Section - Winter Theme */
+.messages-section {
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    padding: 50px 30px;
+    margin: 0 -40px 60px;
+    border-radius: 20px;
+    border: 1px solid rgba(100, 180, 200, 0.2);
+}
+
+.messages-section .section-header h2 {
+    color: #87ceeb;
+    font-size: 2em;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+/* Add Message Card */
+.add-message-card {
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid rgba(100, 180, 200, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.fan-form input,
+.fan-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #3d7a94;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background-color: #0a0f1a;
+    color: #e8f4f8;
+}
+
+.fan-form input:focus,
+.fan-form textarea:focus {
+    outline: none;
+    border-color: #87ceeb;
+    box-shadow: 0 0 15px rgba(135, 206, 235, 0.2);
+}
+
+.fan-form button {
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.fan-form button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(74, 143, 168, 0.5);
+}
+
+/* Message Card - Winter Theme */
+.message-card {
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(100, 180, 200, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.message-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 180, 200, 0.08), transparent);
+    transition: left 0.5s ease;
+}
+
+.message-card:hover::before {
+    left: 100%;
+}
+
+.message-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(100, 180, 200, 0.2);
+    border-color: rgba(100, 180, 200, 0.3);
+}
+
+.message-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2em;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(74, 143, 168, 0.3);
+}
+
+.message-name {
+    color: #87ceeb;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.message-badge {
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+.action-btn:hover {
+    background: rgba(100, 180, 200, 0.1);
+    border-color: #87ceeb;
+    color: #87ceeb;
+}
+
+/* Games Section - Winter Theme */
+.game-screen {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.game-screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.game-screen h3 {
+    color: #87ceeb;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.game-rules li {
+    padding: 10px 15px;
+    background-color: rgba(74, 143, 168, 0.1);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: #b8d4e3;
+    border-right: 3px solid #4a8fa8;
+}
+
+.game-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.game-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(74, 143, 168, 0.5);
+}
+
+.game-btn.secondary {
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    color: #b8d4e3;
+    border: 2px solid #4a8fa8;
+}
+
+.game-btn.secondary:hover {
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4a8fa8, #87ceeb);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.question-card {
+    background: linear-gradient(135deg, rgba(74, 143, 168, 0.1) 0%, rgba(100, 180, 200, 0.1) 100%);
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #4a8fa8;
+    margin-bottom: 25px;
+}
+
+.question-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.question-text {
+    font-size: 1.3em;
+    color: #e8f4f8;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.option-btn {
+    padding: 18px 25px;
+    background-color: #1a2535;
+    border: 2px solid #3d7a94;
+    border-radius: 15px;
+    color: #b8d4e3;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-btn:hover:not(.disabled) {
+    border-color: #87ceeb;
+    background-color: rgba(100, 180, 200, 0.1);
+    transform: translateY(-2px);
+}
+
+.next-btn {
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    color: #87ceeb;
+    border: 2px solid #4a8fa8;
+}
+
+.next-btn:hover {
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+}
+
+.score-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    border-radius: 50%;
+    box-shadow: 0 10px 40px rgba(74, 143, 168, 0.4);
+    animation: scoreGlow 2s ease-in-out infinite;
+}
+
+@keyframes scoreGlow {
+    0%, 100% { box-shadow: 0 10px 40px rgba(74, 143, 168, 0.4); }
+    50% { box-shadow: 0 15px 50px rgba(100, 180, 200, 0.6); }
+}
+
+.score-percentage {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #87ceeb;
+    text-shadow: 0 0 20px rgba(135, 206, 235, 0.4);
+}
+
+.stat {
+    text-align: center;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, rgba(74, 143, 168, 0.1) 0%, rgba(100, 180, 200, 0.1) 100%);
+    border-radius: 15px;
+    border: 2px solid rgba(100, 180, 200, 0.3);
+    min-width: 150px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2em;
+    font-weight: 700;
+    color: #87ceeb;
+}
+
+/* Posts Section - Winter Theme */
+.posts-section {
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    padding: 50px 30px;
+    margin: 0 -40px 60px;
+    border-radius: 20px;
+    border: 1px solid rgba(100, 180, 200, 0.2);
+}
+
+.posts-section .section-header h2 {
+    color: #87ceeb;
+    font-size: 2em;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.post-count {
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.post-tab.active {
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+    border-color: #87ceeb;
+    box-shadow: 0 5px 20px rgba(100, 180, 200, 0.3);
+}
+
+.add-post-card {
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+    border: 2px solid rgba(100, 180, 200, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.publish-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.publish-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(74, 143, 168, 0.5);
+}
+
+.post-card {
+    background: linear-gradient(135deg, #1a2535 0%, #0d1520 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(100, 180, 200, 0.2);
+    transition: all 0.4s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(100, 180, 200, 0.2);
+    border-color: rgba(100, 180, 200, 0.3);
+}
+
+.post-type-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 15px;
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    border-radius: 20px;
+    color: white;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.post-action-btn:hover {
+    background: rgba(100, 180, 200, 0.2);
+    color: #87ceeb;
+}
+
+/* Timeline Section - Winter Theme */
+.timeline-section {
+    background: linear-gradient(180deg, #0a0f1a 0%, #1a2535 50%, #0d1520 100%);
+    padding: 60px 20px;
+    margin: 60px -40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    border: 2px solid rgba(100, 180, 200, 0.2);
+}
+
+.timeline-section h2 {
+    color: #87ceeb;
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.year-number {
+    display: inline-block;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+    border-radius: 18px;
+    font-weight: bold;
+    font-size: 0.9em;
+    box-shadow: 0 3px 10px rgba(74, 143, 168, 0.3);
+}
+
+.timeline-works-display {
+    background: rgba(26, 37, 53, 0.9);
+    border-radius: 15px;
+    border: 2px solid rgba(100, 180, 200, 0.2);
+}
+
+.timeline-works-display h3 {
+    color: #87ceeb;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.timeline-work-item {
+    padding: 8px 18px;
+    background: rgba(74, 143, 168, 0.15);
+    border: 1px solid rgba(100, 180, 200, 0.3);
+    border-radius: 20px;
+    color: #b8d4e3;
+    font-weight: 500;
+    font-size: 0.95em;
+}
+
+.timeline-work-item:hover {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+    border-color: #87ceeb;
+}
+
+/* Timeline Navigation Dots */
+.timeline-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #3d7a94;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #1a2535;
+}
+
+.timeline-dot:hover {
+    transform: scale(1.2);
+    border-color: #87ceeb;
+}
+
+.timeline-dot.active {
+    border-color: #87ceeb;
+    box-shadow: 0 0 12px rgba(135, 206, 235, 0.6);
+}
+
+/* Settings Bar */
+.theme-btn {
+    background: linear-gradient(135deg, #4a8fa8 0%, #3d7a94 100%);
+    color: white;
+}
+
+.theme-btn:hover {
+    background: linear-gradient(135deg, #5a9cb8 0%, #4a8fa8 100%);
+}
+
+/* Footer - Winter Theme */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(180deg, #1a2535 0%, #0d1520 100%);
+    color: #b8d4e3;
+    margin-top: 40px;
+    border-top: 1px solid rgba(100, 180, 200, 0.2);
+}
+
+footer p {
+    opacity: 0.9;
+}
+
+/* Light mode for winter theme */
+body.light-mode {
+    background-color: #e8f4f8;
+    color: #1a2535;
+}
+
+body.light-mode #about,
+body.light-mode .works li,
+body.light-mode .message-card,
+body.light-mode nav,
+body.light-mode footer {
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(74, 143, 168, 0.15);
+}
+
+body.light-mode nav {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(74, 143, 168, 0.15);
+}
+
+body.light-mode .section h2 {
+    color: #3d7a94;
+}
+
+body.light-mode .works li strong {
+    color: #4a8fa8;
+}
+
+body.light-mode .year {
+    background-color: #4a8fa8;
+    color: #ffffff;
+}
+
 
 /* Navigation */
 nav {
@@ -1333,15 +2196,15 @@ nav a:hover {
     50% { transform: scale(1.1); box-shadow: 0 0 20px 10px rgba(212, 175, 55, 0); }
 }
 
-/* Header Animation */
+/* Header Animation - Winter Theme */
 header {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: #e6edf3;
+    background: linear-gradient(135deg, #1a2a3a 0%, #16213e 100%);
+    color: #e8f4f8;
     text-align: center;
     padding: 60px 20px;
     position: relative;
     overflow: hidden;
-    border-bottom: 3px solid #911e69;
+    border-bottom: 3px solid #4a8fa8;
 }
 
 header::before {
@@ -1360,7 +2223,7 @@ header h1 {
     margin-bottom: 10px;
     position: relative;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    background: linear-gradient(45deg, #d4af37, #f0e68c, #d4af37);
+    background: linear-gradient(45deg, #87ceeb, #b0e0e6, #add8e6, #87ceeb);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1372,7 +2235,7 @@ header h1 {
     50% { filter: brightness(1.3); }
 }
 
-/* Profile Image Animation */
+/* Profile Image Animation - Winter Theme */
 .profile-container {
     position: relative;
     display: inline-block;
@@ -1384,46 +2247,18 @@ header h1 {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #d4af37;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    border: 4px solid #87ceeb;
+    box-shadow: 0 0 30px rgba(135, 206, 235, 0.5);
     animation: profileGlow 2s ease-in-out infinite;
 }
 
 @keyframes profileGlow {
-    0%, 100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
-    50% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.8); }
-}
-
-.change-profile-btn {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background-color: #d4af37;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-    transition: all 0.3s ease;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-5px); }
-    60% { transform: translateY(-2px); }
-}
-
-.change-profile-btn:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    0%, 100% { box-shadow: 0 0 30px rgba(135, 206, 235, 0.5); }
+    50% { box-shadow: 0 0 50px rgba(135, 206, 235, 0.8); }
 }
 
 /* Navigation Animation */
+
 nav {
     background-color: #161b22;
     padding: 15px 0;

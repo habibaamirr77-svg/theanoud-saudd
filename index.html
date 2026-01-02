@@ -36,9 +36,7 @@
     <!-- Header -->
     <header>
         <div class="profile-container">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150'%3E%3Crect fill='%231a1a2e' width='150' height='150'/%3E%3Ccircle cx='75' cy='55' r='30' fill='%23d4af37'/%3E%3Cellipse cx='75' cy='130' rx='50' ry='40' fill='%23d4af37'/%3E%3C/svg%3E" alt="الصورة الشخصية" class="profile-image" id="profileImage">
-            <button class="change-profile-btn" onclick="document.getElementById('profileInput').click()" title="تغيير الصورة">📷</button>
-            <input type="file" id="profileInput" accept="image/*" onchange="changeProfilePicture(event)">
+            <img src="https://i.postimg.cc/pT48MyKy/Whats-App-Image-2025-10-25-at-1-03-53-PM-(2).jpg" alt="الصورة الشخصية" class="profile-image" style="object-fit: cover;">
         </div>
         <h1>العنود سعود</h1>
         <p>ممثلة سعودية | أعمال درامية مميزة</p>
@@ -462,5 +460,28 @@
 
     <!-- JavaScript -->
     <script src="game.js"></script>
+    
+    <!-- Snow Effect -->
+    <script>
+        function createSnowflakes() {
+            const snowflakes = ['❄', '❅', '❆', '✻', '✼', '❉'];
+            const container = document.body;
+            
+            for (let i = 0; i < 50; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                snowflake.style.animationDelay = (Math.random() * 5) + 's';
+                snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+                snowflake.style.opacity = Math.random() * 0.6 + 0.2;
+                container.appendChild(snowflake);
+            }
+        }
+        
+        // Start snow effect when page loads
+        window.addEventListener('load', createSnowflakes);
+    </script>
 </body>
 </html>
