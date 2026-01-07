@@ -9,12 +9,2000 @@
     <meta property="og:description" content="ممثلة سعودية موهوبة، أبرز أعمالها: مذكرة ابتزاز، كنا امس، بعد حين، ضحايا حلال، بنات الملاكمة، ستوديو، لعبة كبار، عيال نوف، دكة العبيد، حوجن، كلاود كيتشن، أمي">
     <meta property="og:type" content="website">
     <title>العنود سعود - ممثلة سعودية</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Reset and Base Styles - Winter Theme */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+            background: linear-gradient(180deg, #0a1628 0%, #1a2744 50%, #0d1117 100%);
+            color: #e6edf3;
+            line-height: 1.8;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Snowfall Animation */
+        .snowflakes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            font-size: 1em;
+            opacity: 0.8;
+            animation: fall linear infinite;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* Header Styles - Winter Theme */
+        header {
+            background: linear-gradient(180deg, #1a3a5c 0%, #0d2137 50%, #0a1628 100%);
+            color: #e6edf3;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid #64b5f6;
+            box-shadow: 0 0 30px rgba(100, 181, 246, 0.3), inset 0 0 60px rgba(100, 181, 246, 0.1);
+        }
+
+        header::before {
+            content: '❄️ ❄️ ❄️';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            animation: sparkle 2s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(180deg, transparent, rgba(100, 181, 246, 0.2));
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            text-shadow: 0 0 20px rgba(100, 181, 246, 0.5), 0 0 40px rgba(100, 181, 246, 0.3);
+            color: #fff;
+        }
+
+        header h1::before {
+            content: '🎄 ';
+        }
+
+        header h1::after {
+            content: ' 🎄';
+        }
+
+        /* Navigation - Winter Theme */
+        nav {
+            background: linear-gradient(180deg, rgba(10, 22, 40, 0.95) 0%, rgba(26, 58, 92, 0.95) 100%);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(100, 181, 246, 0.2);
+            border-bottom: 1px solid rgba(100, 181, 246, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav a {
+            color: #64b5f6;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '❄️';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: linear-gradient(135deg, rgba(100, 181, 246, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(100, 181, 246, 0.3);
+        }
+
+        nav a:hover::before {
+            left: 5px;
+            opacity: 1;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Styles - Winter Theme */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            color: #64b5f6;
+            font-size: 2em;
+            border-bottom: 3px solid #64b5f6;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            text-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+        }
+
+        .section h2::before {
+            content: '❄️ ';
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #64b5f6, #fff, #64b5f6);
+            box-shadow: 0 0 10px rgba(100, 181, 246, 0.5);
+        }
+
+        /* About Section - Winter Theme */
+        #about {
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.5) 0%, rgba(10, 22, 40, 0.8) 100%);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(100, 181, 246, 0.2), inset 0 0 60px rgba(100, 181, 246, 0.05);
+            border: 1px solid rgba(100, 181, 246, 0.2);
+        }
+
+        #about p {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        /* Works Section - Winter Theme */
+        .works {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 20px;
+        }
+
+        .works li {
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.4) 0%, rgba(10, 22, 40, 0.8) 100%);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(100, 181, 246, 0.15);
+            transition: all 0.3s ease;
+            border-right: 4px solid #64b5f6;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .works li::before {
+            content: '❄️';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            font-size: 1.5em;
+        }
+
+        .works li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(100, 181, 246, 0.25);
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.6) 0%, rgba(10, 22, 40, 0.9) 100%);
+        }
+
+        .works li:hover::before {
+            right: 10px;
+            opacity: 1;
+        }
+
+        .works li strong {
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-shadow: 0 0 5px rgba(100, 181, 246, 0.3);
+        }
+
+        .works li .year {
+            display: inline-block;
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: #0a1628;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-right: 10px;
+            box-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            cursor: pointer;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(13, 17, 23, 0.95));
+            color: #e6edf3;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            transform: translateY(0);
+        }
+
+        /* Social Links - Winter Theme */
+        .social-links {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.8) 0%, rgba(10, 22, 40, 0.9) 100%);
+            text-decoration: none;
+            color: #64b5f6;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.2);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: 1px solid rgba(100, 181, 246, 0.3);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(100, 181, 246, 0.4);
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: #0a1628;
+            border-color: #64b5f6;
+        }
+
+        .social-links a svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Contact Section - Winter Theme */
+        #contact {
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.5) 0%, rgba(10, 22, 40, 0.8) 100%);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(100, 181, 246, 0.2), inset 0 0 60px rgba(100, 181, 246, 0.05);
+            border: 1px solid rgba(100, 181, 246, 0.2);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(100, 181, 246, 0.3);
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background-color: rgba(10, 22, 40, 0.8);
+            color: #e6edf3;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #64b5f6;
+            box-shadow: 0 0 15px rgba(100, 181, 246, 0.2);
+        }
+
+        .contact-form button {
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: #0a1628;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3);
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(100, 181, 246, 0.5);
+        }
+
+        /* Fan Messages Section - Winter Theme */
+        .fan-form {
+            display: grid;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .fan-form input,
+        .fan-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(100, 181, 246, 0.3);
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background-color: rgba(10, 22, 40, 0.8);
+            color: #e6edf3;
+        }
+
+        .fan-form input:focus,
+        .fan-form textarea:focus {
+            outline: none;
+            border-color: #64b5f6;
+            box-shadow: 0 0 15px rgba(100, 181, 246, 0.2);
+        }
+
+        .fan-form button {
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: #0a1628;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3);
+        }
+
+        .fan-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(100, 181, 246, 0.5);
+        }
+
+        .messages-display {
+            margin-top: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .message-card {
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.4) 0%, rgba(10, 22, 40, 0.8) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-right: 4px solid #64b5f6;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.15);
+        }
+
+        .message-card strong {
+            color: #64b5f6;
+        }
+
+        .message-card .msg-date {
+            font-size: 0.85em;
+            color: #8b949e;
+            margin-right: 10px;
+        }
+
+        .message-card p {
+            margin-top: 10px;
+            color: #e6edf3;
+        }
+
+        .message-card .heart-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #8b949e;
+        }
+
+        .message-card .heart-btn.liked {
+            color: #e74c3c;
+        }
+
+        .message-card .likes-count {
+            font-size: 0.9em;
+            color: #8b949e;
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .no-messages {
+            text-align: center;
+            padding: 40px;
+            color: #8b949e;
+            font-style: italic;
+        }
+
+        /* Photos Gallery Section */
+        .photos-section {
+            margin-top: 40px;
+        }
+
+        .photo-upload-form {
+            background-color: #161b22;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 2px dashed #30363d;
+        }
+
+        .photo-upload-form h3 {
+            color: #378bd4;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .photo-upload-form input[type="file"] {
+            display: none;
+        }
+
+        .upload-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #377bd4;
+            color: #0d1117;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background-color: #2e6eb8;
+            transform: translateY(-2px);
+        }
+
+        .photos-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .photo-card {
+            background-color: #161b22;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .photo-card img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            background-color: #000;
+        }
+
+        .photo-info {
+            padding: 15px;
+        }
+
+        .photo-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #30363d;
+            margin-top: 10px;
+        }
+
+        .photo-action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            padding: 5px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .photo-action-btn.like-btn {
+            color: #8b949e;
+        }
+
+        .photo-action-btn.like-btn.liked {
+            color: #e74c3c;
+        }
+
+        .photo-action-btn.comment-btn {
+            color: #8b949e;
+        }
+
+        .photo-action-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .photo-likes {
+            font-size: 0.9em;
+            color: #8b949e;
+        }
+
+        .photo-date {
+            font-size: 0.8em;
+            color: #8b949e;
+            margin-right: auto;
+        }
+
+        /* Comments Section */
+        .comments-section {
+            background-color: #0d1117;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .comments-section.show {
+            display: block;
+        }
+
+        .comment {
+            padding: 10px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+        }
+
+        .comment strong {
+            color: #3770d4;
+            font-size: 0.9em;
+        }
+
+        .comment span {
+            font-size: 0.8em;
+            color: #8b949e;
+            margin-right: 8px;
+        }
+
+        .comment p {
+            font-size: 0.9em;
+            margin-top: 5px;
+            color: #e6edf3;
+        }
+
+        .comment-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .comment-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #30363d;
+            border-radius: 20px;
+            background-color: #161b22;
+            color: #e6edf3;
+            font-size: 0.9em;
+        }
+
+        .comment-form button {
+            padding: 10px 20px;
+            background-color: #3798d4;
+            color: #0d1117;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .no-photos {
+            text-align: center;
+            padding: 60px;
+            color: #8b949e;
+        }
+
+        .no-photos span {
+            font-size: 3em;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Series Summary Modal */
+        .series-summary-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .series-summary-modal.show {
+            display: flex;
+        }
+
+        .series-summary-content {
+            background-color: #161b22;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .series-summary-header {
+            background: linear-gradient(135deg, #379dd4 0%, #2e63b8 100%);
+            padding: 20px 25px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .series-summary-header h3 {
+            color: #0d1117;
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .close-summary-btn {
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            cursor: pointer;
+            color: #0d1117;
+            line-height: 1;
+        }
+
+        .series-summary-body {
+            padding: 25px;
+        }
+
+        .series-summary-body .year-badge {
+            display: inline-block;
+            background-color: #379dd4;
+            color: #0d1117;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .series-summary-body p {
+            color: #e6edf3;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        /* Footer - Winter Theme */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(180deg, rgba(10, 22, 40, 0.9) 0%, rgba(26, 58, 92, 0.9) 100%);
+            color: #e6edf3;
+            margin-top: 40px;
+            border-top: 1px solid rgba(100, 181, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '🎄 ❄️ 🎅 ❄️ 🎄';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2em;
+            opacity: 0.5;
+        }
+
+        footer p {
+            opacity: 0.9;
+            margin-top: 15px;
+        }
+
+        footer p:nth-child(2) {
+            color: #64b5f6;
+            text-shadow: 0 0 10px rgba(100, 181, 246, 0.5);
+        }
+
+        footer p:last-child {
+            color: #fff;
+        }
+
+        /* Scroll to Top Button - Winter Theme */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            font-size: 1.5em;
+            box-shadow: 0 4px 20px rgba(100, 181, 246, 0.4);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(100, 181, 246, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            header p {
+                font-size: 1em;
+            }
+            
+            nav ul {
+                gap: 10px;
+            }
+            
+            nav a {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+            
+            .section h2 {
+                font-size: 1.5em;
+            }
+            
+            #about, #contact {
+                padding: 25px;
+            }
+            
+            .works li {
+                padding: 20px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #0d1117;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #30363d;
+            border-top-color: #378dd4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Profile Picture Styles */
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #06356a;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Settings Bar */
+        .settings-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 2000;
+        }
+
+        .settings-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .settings-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-btn {
+            background-color: #379ad4;
+            color: #0d1117;
+        }
+
+        .theme-btn:hover {
+            background-color: #2e88b8;
+        }
+
+        .lang-btn {
+            background-color: #30363d;
+            color: #e6edf3;
+        }
+
+        .lang-btn:hover {
+            background-color: #484f58;
+        }
+
+        /* Light Mode Styles */
+        body.light-mode {
+            background-color: #f6f8fa;
+            color: #24292f;
+        }
+
+        body.light-mode #about,
+        body.light-mode .works li,
+        body.light-mode .post-card,
+        body.light-mode .message-card,
+        body.light-mode #contact,
+        body.light-mode .post-upload-form,
+        body.light-mode nav,
+        body.light-mode footer,
+        body.light-mode .series-summary-content {
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        body.light-mode nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        body.light-mode .contact-form input,
+        body.light-mode .contact-form textarea,
+        body.light-mode .fan-form input,
+        body.light-mode .fan-form textarea,
+        body.light-mode .comment-form input,
+        body.light-mode .post-text-input {
+            background-color: #f6f8fa;
+            color: #24292f;
+            border-color: #d0d7de;
+        }
+
+        body.light-mode header {
+            background: linear-gradient(135deg, #f6f8fa 0%, #e1e4e8 100%);
+            color: #24292f;
+        }
+
+        body.light-mode .social-links a {
+            background-color: #f6f8fa;
+            color: #24292f;
+            border-color: #d0d7de;
+        }
+
+        body.light-mode .section h2 {
+            color: #2e71b8;
+        }
+
+        body.light-mode .section h2::after,
+        body.light-mode .works li,
+        body.light-mode .message-card {
+            border-color: #2e8cb8;
+        }
+
+        body.light-mode .works li strong {
+            color: #2e6ab8;
+        }
+
+        body.light-mode .year,
+        body.light-mode .series-summary-body .year-badge,
+        body.light-mode .filter-btn.active {
+            background-color: #2e8ab8;
+            color: #ffffff;
+        }
+
+
+
+        /* Comments Section */
+        .comments-section {
+            background-color: #0d1117;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .comments-section.show {
+            display: block;
+        }
+
+        .comment {
+            padding: 10px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+        }
+
+        .comment strong {
+            color: #3795d4;
+            font-size: 0.9em;
+        }
+
+        .comment span {
+            font-size: 0.8em;
+            color: #8b949e;
+            margin-right: 8px;
+        }
+
+        .comment p {
+            font-size: 0.9em;
+            margin-top: 5px;
+            color: #e6edf3;
+        }
+
+        .comment-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .comment-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #30363d;
+            border-radius: 20px;
+            background-color: #161b22;
+            color: #e6edf3;
+            font-size: 0.9em;
+        }
+
+        .comment-form button {
+            padding: 10px 20px;
+            background-color: #3798d4;
+            color: #0d1117;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .no-posts {
+            text-align: center;
+            padding: 60px;
+            color: #8b949e;
+        }
+
+        .no-posts span {
+            font-size: 3em;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Cartoon Timeline Styles - Winter Theme */
+        .timeline-section {
+            margin-top: 60px;
+            padding: 40px 0;
+            background: linear-gradient(180deg, rgba(26, 58, 92, 0.3) 0%, rgba(10, 22, 40, 0.8) 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(100, 181, 246, 0.2);
+        }
+
+        /* Snow decoration for timeline */
+        .timeline-section::before {
+            content: '❄️ ❄️ ❄️ ❄️ ❄️';
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1em;
+            opacity: 0.4;
+            animation: snowFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes snowFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Clouds - styled as artistic elements */
+        .cloud {
+            position: absolute;
+            font-size: 1.5em;
+            opacity: 0.3;
+            filter: grayscale(50%);
+        }
+
+        .cloud-1 { top: 20px; left: 10%; }
+        .cloud-2 { top: 35px; left: 60%; }
+        .cloud-3 { top: 15px; left: 80%; }
+
+        .timeline-section h2 {
+            color: #64b5f6;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 20px rgba(100, 181, 246, 0.3);
+        }
+
+        .timeline-section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #64b5f6, transparent);
+            margin: 15px auto 0;
+            box-shadow: 0 0 10px rgba(100, 181, 246, 0.5);
+        }
+
+        /* Road container */
+        .road-container {
+            position: relative;
+            padding: 180px 20px 120px;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        /* Cartoon Road - winter style */
+        .cartoon-road {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-width: max-content;
+            padding: 0 60px;
+            position: relative;
+            height: 120px;
+        }
+
+        /* Road surface */
+        .road-surface {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(180deg, #2a3f5f 0%, #1a2d47 100%);
+            border-radius: 10px;
+            border: 2px solid rgba(100, 181, 246, 0.3);
+        }
+
+        /* Road lines */
+        .road-lines {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transform: translateY(-50%);
+            background: repeating-linear-gradient(
+                90deg,
+                #64b5f6 0px,
+                #64b5f6 40px,
+                transparent 40px,
+                transparent 80px
+            );
+            box-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+        }
+
+        /* Road edges */
+        .road-edge {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                #64b5f6 0px,
+                #64b5f6 15px,
+                rgba(100, 181, 246, 0.3) 15px,
+                rgba(100, 181, 246, 0.3) 30px
+            );
+        }
+
+        .road-edge.top { bottom: auto; top: -5px; }
+
+        /* Cartoon Car - winter theme */
+        .cartoon-car {
+            position: absolute;
+            bottom: 20px;
+            left: 80px;
+            z-index: 10;
+        }
+
+        .car-body {
+            width: 90px;
+            height: 40px;
+            background: linear-gradient(180deg, #64b5f6 0%, #42a5f5 50%, #2196f3 100%);
+            border-radius: 20px 20px 8px 8px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(100, 181, 246, 0.3);
+        }
+
+        /* Car roof */
+        .car-roof {
+            position: absolute;
+            top: -18px;
+            left: 20px;
+            width: 50px;
+            height: 22px;
+            background: linear-gradient(180deg, #0a1628 0%, #1a3a5c 100%);
+            border-radius: 12px 12px 5px 5px;
+            border: 2px solid #64b5f6;
+        }
+
+        /* Car windows */
+        .car-window {
+            position: absolute;
+            top: -14px;
+            width: 18px;
+            height: 14px;
+            background: linear-gradient(180deg, #a8d8ff 0%, #64b5f6 100%);
+            border-radius: 6px 6px 2px 2px;
+            border: 1px solid #fff;
+        }
+
+        .car-window.front { left: 24px; }
+        .car-window.back { right: 24px; }
+
+        /* Car headlights */
+        .car-light {
+            position: absolute;
+            width: 10px;
+            height: 6px;
+            background: #fff;
+            border-radius: 2px;
+            bottom: 8px;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .car-light.left { left: -4px; }
+        .car-light.right { right: -4px; }
+
+        /* Car wheels */
+        .car-wheel {
+            position: absolute;
+            bottom: -8px;
+            width: 20px;
+            height: 20px;
+            background: #0a1628;
+            border-radius: 50%;
+            border: 3px solid #64b5f6;
+        }
+
+        .car-wheel.left { left: 10px; }
+        .car-wheel.right { right: 10px; }
+
+        /* Wheel hubcaps */
+        .car-wheel::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        /* Car exhaust */
+        .car-exhaust {
+            position: absolute;
+            right: -6px;
+            bottom: 4px;
+            width: 8px;
+            height: 5px;
+            background: #1a3a5c;
+            border-radius: 2px;
+        }
+
+        /* Smoke animation - snow effect */
+        .smoke {
+            position: absolute;
+            right: -12px;
+            bottom: 4px;
+            font-size: 0.7em;
+            opacity: 0.4;
+            filter: grayscale(50%);
+            animation: smokeRise 2s ease-out infinite;
+        }
+
+        @keyframes smokeRise {
+            0% { opacity: 0.4; transform: translateX(0) translateY(0); }
+            100% { opacity: 0; transform: translateX(10px) translateY(-10px); }
+        }
+
+        /* Year markers on road */
+        .year-markers {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            min-width: max-content;
+            padding: 0 20px;
+            position: relative;
+            margin-top: 20px;
+            z-index: 5;
+        }
+
+        .year-marker {
+            margin: 0 25px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .year-marker-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.8) 0%, rgba(10, 22, 40, 0.9) 100%);
+            border: 3px solid #64b5f6;
+            color: #64b5f6;
+            font-size: 0.95em;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.2);
+        }
+
+        .year-marker-btn:hover {
+            background: linear-gradient(135deg, rgba(100, 181, 246, 0.2) 0%, rgba(100, 181, 246, 0.1) 100%);
+        }
+
+        .year-marker.active .year-marker-btn {
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: #0a1628;
+            box-shadow: 0 0 20px rgba(100, 181, 246, 0.4);
+        }
+
+        /* Road marker for year */
+        .year-road-marker {
+            width: 25px;
+            height: 15px;
+            background: linear-gradient(180deg, #64b5f6 0%, #42a5f5 100%);
+            clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+            margin-top: 5px;
+            box-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+        }
+
+        /* Works popup - hidden by default */
+        .works-popup {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.95) 0%, rgba(10, 22, 40, 0.98) 100%);
+            border-radius: 15px;
+            padding: 15px 20px;
+            min-width: 220px;
+            text-align: center;
+            box-shadow: 0 -10px 40px rgba(100, 181, 246, 0.2);
+            border: 2px solid #64b5f6;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 20;
+            margin-bottom: 15px;
+            max-height: 350px;
+            overflow-y: auto;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .works-popup::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .works-popup::-webkit-scrollbar-track {
+            background: rgba(100, 181, 246, 0.1);
+            border-radius: 3px;
+        }
+
+        .works-popup::-webkit-scrollbar-thumb {
+            background: #64b5f6;
+            border-radius: 3px;
+        }
+
+        .works-popup::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 12px 12px 0 12px;
+            border-style: solid;
+            border-color: rgba(10, 22, 40, 0.98) transparent transparent transparent;
+        }
+
+        .year-marker:hover .works-popup,
+        .year-marker.active .works-popup {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .works-popup h4 {
+            color: #64b5f6;
+            font-size: 1em;
+            margin-bottom: 12px;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(100, 181, 246, 0.3);
+            padding-bottom: 8px;
+        }
+
+        .works-popup .works-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .works-popup .work-item {
+            background: rgba(100, 181, 246, 0.1);
+            border: 1px solid rgba(100, 181, 246, 0.2);
+            border-radius: 8px;
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .works-popup .work-item:hover {
+            background: rgba(100, 181, 246, 0.2);
+            border-color: #64b5f6;
+        }
+
+        .works-popup .work-item h5 {
+            color: #fff;
+            font-size: 0.95em;
+            margin-bottom: 4px;
+        }
+
+        .works-popup .work-item .role {
+            color: #64b5f6;
+            font-size: 0.85em;
+        }
+
+        .works-popup .work-item.featured {
+            background: rgba(100, 181, 246, 0.15);
+            border: 1px solid #64b5f6;
+        }
+
+        .works-popup .work-item.featured h5 {
+            color: #64b5f6;
+        }
+
+        /* Trees decoration - snow covered trees */
+        .tree {
+            position: absolute;
+            bottom: 80px;
+            font-size: 2em;
+            filter: grayscale(30%);
+            opacity: 0.6;
+        }
+
+        .tree-1 { left: 5%; }
+        .tree-2 { right: 5%; }
+        .tree-3 { left: 25%; }
+        .tree-4 { right: 25%; }
+        .tree-5 { left: 75%; }
+        .tree-6 { right: 75%; }
+
+        /* Navigation dots */
+        .timeline-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-nav-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 2px solid #64b5f6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-nav-btn:hover,
+        .timeline-nav-btn.active {
+            background-color: #64b5f6;
+            transform: scale(1.2);
+        }
+
+        /* Scroll hint */
+        .timeline-scroll-hint {
+            text-align: center;
+            color: #8b949e;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Light mode support */
+        body.light-mode .timeline-section {
+            background-color: #f6f8fa;
+            border-color: #e1e4e8;
+        }
+
+        body.light-mode .works-popup {
+            background: linear-gradient(135deg, #ffffff 0%, #f6f8fa 100%);
+            border-color: #2e7cb8;
+        }
+
+        body.light-mode .works-popup::after {
+            border-color: #f6f8fa transparent transparent transparent;
+        }
+
+        body.light-mode .works-popup h4 {
+            color: #2e8cb8;
+            border-color: #e1e4e8;
+        }
+
+        body.light-mode .works-popup .work-item {
+            background: rgba(184, 150, 46, 0.1);
+            border-color: #e1e4e8;
+        }
+
+        body.light-mode .works-popup .work-item:hover {
+            background: rgba(184, 150, 46, 0.2);
+            border-color: #2e75b8;
+        }
+
+        body.light-mode .works-popup .work-item h5 {
+            color: #24292f;
+        }
+
+        body.light-mode .works-popup .work-item.featured {
+            background: rgba(184, 150, 46, 0.15);
+            border-color: #2e5cb8;
+        }
+
+        body.light-mode .works-popup .work-item.featured h5 {
+            color: #2e88b8;
+        }
+
+        body.light-mode .works-popup .work-item .role {
+            color: #57606a;
+        }
+
+        body.light-mode .year-marker-btn {
+            background: linear-gradient(135deg, #ffffff 0%, #f6f8fa 100%);
+            color: #2e73b8;
+            border-color: #2e88b8;
+        }
+
+        body.light-mode .year-marker.active .year-marker-btn {
+            background: linear-gradient(135deg, #2e7ab8 0%, #2968a6 100%);
+            color: #ffffff;
+        }
+
+        body.light-mode .timeline-nav-btn {
+            border-color: #2e81b8;
+        }
+
+        body.light-mode .timeline-nav-btn.active {
+            background-color: #2e7ab8;
+        }
+
+        body.light-mode .road-surface {
+            background: linear-gradient(180deg, #e1e4e8 0%, #d0d7de 100%);
+            border-color: #c9d1d9;
+        }
+
+        body.light-mode .timeline-scroll-hint {
+            color: #57606a;
+        }
+
+        /* Games Section Styles - Winter Theme */
+        .game-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .game-screen {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.5) 0%, rgba(10, 22, 40, 0.9) 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(100, 181, 246, 0.2);
+            animation: fadeIn 0.5s ease-out;
+            border: 1px solid rgba(100, 181, 246, 0.2);
+        }
+
+        .game-screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .game-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        .game-screen h3 {
+            color: #64b5f6;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+        }
+
+        .game-screen > p {
+            color: #8b949e;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .game-rules {
+            list-style: none;
+            padding: 0;
+            margin: 25px auto;
+            max-width: 350px;
+            text-align: right;
+        }
+
+        .game-rules li {
+            padding: 10px 15px;
+            background: rgba(100, 181, 246, 0.1);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            color: #e6edf3;
+            border-right: 3px solid #64b5f6;
+        }
+
+        .game-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: #0a1628;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3);
+        }
+
+        .game-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(100, 181, 246, 0.5);
+        }
+
+        .game-btn.secondary {
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.8) 0%, rgba(10, 22, 40, 0.9) 100%);
+            color: #64b5f6;
+            border: 2px solid #64b5f6;
+        }
+
+        .game-btn.secondary:hover {
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: #0a1628;
+        }
+
+        /* Quiz Screen */
+        .game-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .game-progress span {
+            font-size: 1.1em;
+            color: #8b949e;
+        }
+
+        .game-progress span:last-child {
+            color: #64b5f6;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(100, 181, 246, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #64b5f6, #42a5f5);
+            width: 0%;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px rgba(100, 181, 246, 0.5);
+        }
+
+        .question-card {
+            background: linear-gradient(135deg, rgba(100, 181, 246, 0.1) 0%, rgba(26, 58, 92, 0.2) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #64b5f6;
+            margin-bottom: 25px;
+        }
+
+        .question-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: #0a1628;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            color: #e6edf3;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 500px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .option-btn {
+            padding: 18px 25px;
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.4) 0%, rgba(10, 22, 40, 0.8) 100%);
+            border: 2px solid rgba(100, 181, 246, 0.3);
+            border-radius: 15px;
+            color: #e6edf3;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option-btn:hover:not(.disabled) {
+            border-color: #64b5f6;
+            background: rgba(100, 181, 246, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.2);
+        }
+
+        .option-btn.correct {
+            background-color: rgba(46, 204, 113, 0.2);
+            border-color: #2ecc71;
+            color: #2ecc71;
+        }
+
+        .option-btn.wrong {
+            background-color: rgba(231, 76, 60, 0.2);
+            border-color: #e74c3c;
+            color: #e74c3c;
+        }
+
+        .option-btn.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .feedback {
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            font-weight: 600;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feedback.correct {
+            background-color: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+            border: 1px solid #2ecc71;
+        }
+
+        .feedback.wrong {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.8) 0%, rgba(10, 22, 40, 0.9) 100%);
+            color: #64b5f6;
+            border: 2px solid #64b5f6;
+        }
+
+        .next-btn:hover {
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+            color: #0a1628;
+        }
+
+        /* Result Screen */
+        .result-icon {
+            font-size: 5em;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .result-screen h3 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        #resultTitle {
+            color: #64b5f6;
+        }
+
+        #resultMessage {
+            color: #8b949e;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .result-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, rgba(100, 181, 246, 0.1) 0%, rgba(26, 58, 92, 0.2) 100%);
+            border-radius: 15px;
+            border: 2px solid rgba(100, 181, 246, 0.3);
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #64b5f6;
+            text-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+        }
+
+        .stat-label {
+            color: #8b949e;
+            font-size: 1em;
+            margin-top: 5px;
+        }
+
+        .result-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Light mode for games */
+        body.light-mode .game-screen,
+        body.light-mode .question-card,
+        body.light-mode .stat {
+            background-color: #ffffff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        body.light-mode .game-rules li {
+            background-color: rgba(184, 150, 46, 0.1);
+            color: #24292f;
+        }
+
+        body.light-mode .option-btn {
+            background-color: #f6f8fa;
+            color: #24292f;
+            border-color: #d0d7de;
+        }
+
+        body.light-mode .option-btn:hover:not(.disabled) {
+            border-color: #2e75b8;
+            background-color: rgba(184, 150, 46, 0.1);
+        }
+
+        body.light-mode .question-text,
+        body.light-mode .question-number {
+            color: #24292f;
+        }
+
+        body.light-mode .game-progress span {
+            color: #57606a;
+        }
+
+        body.light-mode .game-progress span:last-child {
+            color: #2e65b8;
+        }
+    </style>
 </head>
 <body>
+    <!-- Snowfall Effect Container -->
+    <div class="snowflakes"></div>
+
     <!-- Settings Bar -->
     <div class="settings-bar">
         <button class="settings-btn theme-btn" onclick="toggleTheme()" title="تبديل الثيم">🌙</button>
+        <button class="settings-btn lang-btn" onclick="toggleLanguage()" title="تبديل اللغة">عربي</button>
     </div>
 
     <!-- Loading Screen -->
@@ -28,7 +2016,6 @@
             <li><a href="#about">نبذة عني</a></li>
             <li><a href="#tvseries">أعمالي الدرامية</a></li>
             <li><a href="#games">مسابقات</a></li>
-            <li><a href="#posts">المنشورات</a></li>
             <li><a href="#messages">رسائل المعجبين</a></li>
         </ul>
     </nav>
@@ -36,7 +2023,7 @@
     <!-- Header -->
     <header>
         <div class="profile-container">
-            <img src="https://i.postimg.cc/pT48MyKy/Whats-App-Image-2025-10-25-at-1-03-53-PM-(2).jpg" alt="الصورة الشخصية" class="profile-image" style="object-fit: cover;">
+            <img src="https://i.postimg.cc/pT48MyKy/Whats_App_Image_2025_10_25_at_1_03_53_PM_(2).jpg" alt="الصورة الشخصية" class="profile-image" id="profileImage">
         </div>
         <h1>العنود سعود</h1>
         <p>ممثلة سعودية | أعمال درامية مميزة</p>
@@ -47,7 +2034,23 @@
         <!-- About Section -->
         <section class="section" id="about">
             <h2>نبذة عن الممثلة</h2>
-            <p>العنود سعود ممثلة سعودية موهوبة، تتميز بموهبة تمثيلية فريدة وقدرة على تجسيد الشخصيات المتنوعة بإتقان واحترافية عالية.</p>
+            <p>
+                العنود سعود ممثلة سعودية موهوبة، تتميز بموهبة تمثيلية فريدة وقدرة على تجسيد الشخصيات المتنوعة 
+                بإتقان واحترافية عالية. ولدت في المملكة العربية السعودية ونشأت في بيئة غنية بالتراث والثقافة 
+                العربية والإسلامية، مما أثرى مسيرتها الفنية وألهم أعمالها الدرامية.
+            </p>
+            <br>
+            <p>
+                بدأت مسيرتها الفنية في عام 2019، وشاركت في العديد من المسلسلات السعودية البارزة التي لاقت 
+                نجاحاً واسعاً على المستويين المحلي والإقليمي. تتميز بقدرتها على اختيار أدوار قوية ومؤثرة، 
+                وحصلت على إعجاب الجمهور والنقاد على حد سواء بأدائها المتميز.
+            </p>
+            <br>
+            <p>
+                من خلال أعمالها الدرامية، تسعى العنود سعود إلى تقديم محتوى سعودي أصيل يعكس واقع المجتمع 
+                السعودي وقيّمه النبيلة. كما تطمح إلى المساهمة في ازدهار الدراما السعودية على المستوى العالمي، 
+                وتؤمن بأن الفن التمثيلي لغة عالمية تتجاوز الحدود والجغرافيا.
+            </p>
         </section>
 
         <!-- TV Series Section -->
@@ -55,49 +2058,65 @@
             <h2>أعمالي الدرامية</h2>
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="2019">2019</button>
-                <button class="filter-btn" data-filter="2020">2020</button>
-                <button class="filter-btn" data-filter="2021">2021</button>
-                <button class="filter-btn" data-filter="2022">2022</button>
-                <button class="filter-btn" data-filter="2023">2023</button>
                 <button class="filter-btn" data-filter="2025">2025</button>
+                <button class="filter-btn" data-filter="2023">2023</button>
+                <button class="filter-btn" data-filter="2022">2022</button>
+                <button class="filter-btn" data-filter="2021">2021</button>
+                <button class="filter-btn" data-filter="2020">2020</button>
+                <button class="filter-btn" data-filter="2019">2019</button>
             </div>
             <ul class="works tv-works">
-                <li data-year="2019" onclick="showSeriesSummary('بنات الملاكمة', '2019-2020', '🎭 دور شمس')">
-                    <div class="work-info"><strong>بنات الملاكمة</strong><span class="character-name">🎭 شمس</span></div><span class="year">2019-2020</span>
-                </li>
                 <li data-year="2020" onclick="showSeriesSummary('مذكرة ابتزاز', '2020', '🎭 دور هديل')">
-                    <div class="work-info"><strong>مذكرة ابتزاز</strong><span class="character-name">🎭 هديل</span></div><span class="year">2020</span>
+                    <strong>مذكرة ابتزاز</strong>
+                    <span class="year">2020</span>
                 </li>
                 <li data-year="2020" onclick="showSeriesSummary('كنا امس', '2020', '🎭 دور لميس')">
-                    <div class="work-info"><strong>كنا امس</strong><span class="character-name">🎭 لميس</span></div><span class="year">2020</span>
+                    <strong>كنا امس</strong>
+                    <span class="year">2020</span>
                 </li>
                 <li data-year="2020" onclick="showSeriesSummary('بعد حين', '2020', '🎭 دور خلود')">
-                    <div class="work-info"><strong>بعد حين</strong><span class="character-name">🎭 خلود</span></div><span class="year">2020</span>
+                    <strong>بعد حين</strong>
+                    <span class="year">2020</span>
                 </li>
                 <li data-year="2020" onclick="showSeriesSummary('ضحايا حلال', '2020', '🎭 دور ملك')">
-                    <div class="work-info"><strong>ضحايا حلال</strong><span class="character-name">🎭 ملك</span></div><span class="year">2020</span>
+                    <strong>ضحايا حلال</strong>
+                    <span class="year">2020</span>
+                </li>
+                <li data-year="2019" onclick="showSeriesSummary('بنات الملاكمة', '2019-2020', '🎭 دور شمس')">
+                    <strong>بنات الملاكمة</strong>
+                    <span class="year">2019-2020</span>
                 </li>
                 <li data-year="2021" onclick="showSeriesSummary('ستوديو', '2021', '🎭 دور أميرة')">
-                    <div class="work-info"><strong>ستوديو</strong><span class="character-name">🎭 أميرة</span></div><span class="year">2021</span>
+                    <strong>ستوديو</strong>
+                    <span class="year">2021</span>
                 </li>
                 <li data-year="2021" onclick="showSeriesSummary('لعبة كبار', '2021', '🎭 دور مرزوقة')">
-                    <div class="work-info"><strong>لعبة كبار</strong><span class="work-type">🎬 فيلم</span><span class="character-name">🎭 مرزوقة</span></div><span class="year">2021</span>
-                </li>
-                <li data-year="2023" onclick="showSeriesSummary('حوجن', '2023', '🎭 دور جمارى')">
-                    <div class="work-info"><strong>حوجن</strong><span class="work-type">🎬 فيلم</span><span class="character-name">🎭 جمارى</span></div><span class="year">2023</span>
+                    <strong>لعبة كبار</strong>
+                    <span class="year">2021</span>
                 </li>
                 <li data-year="2022" onclick="showSeriesSummary('عيال نوف', '2022', '🎭 دور صمود')">
-                    <div class="work-info"><strong>عيال نوف</strong><span class="character-name">🎭 صمود</span></div><span class="year">2022</span>
+                    <strong>عيال نوف</strong>
+                    <span class="year">2022</span>
+                </li>
+                <li data-year="2022" onclick="showSeriesSummary('ستوديو', '2022', '🎭 دور أميرة')">
+                    <strong>ستوديو</strong>
+                    <span class="year">2022</span>
                 </li>
                 <li data-year="2023" onclick="showSeriesSummary('دكة العبيد', '2023', '🎭 دور رحمه')">
-                    <div class="work-info"><strong>دكة العبيد</strong><span class="character-name">🎭 رحمه</span></div><span class="year">2023</span>
+                    <strong>دكة العبيد</strong>
+                    <span class="year">2023</span>
+                </li>
+                <li data-year="2023" onclick="showSeriesSummary('حوجن', '2023', '🎭 دور جمارى')">
+                    <strong>حوجن</strong>
+                    <span class="year">2023</span>
                 </li>
                 <li data-year="2023" onclick="showSeriesSummary('كلاود كيتشن', '2023', '🎭 دور عبير')">
-                    <div class="work-info"><strong>كلاود كيتشن</strong><span class="character-name">🎭 عبير</span></div><span class="year">2023</span>
+                    <strong>كلاود كيتشن</strong>
+                    <span class="year">2023</span>
                 </li>
                 <li data-year="2025" onclick="showSeriesSummary('أمي', '2025', '🎭 دور مريم')">
-                    <div class="work-info"><strong>أمي</strong><span class="character-name">🎭 مريم</span></div><span class="year">2025</span>
+                    <strong>أمي</strong>
+                    <span class="year">2025</span>
                 </li>
             </ul>
         </section>
@@ -107,9 +2126,12 @@
             <div class="cloud cloud-1">☁️</div>
             <div class="cloud cloud-2">☁️</div>
             <div class="cloud cloud-3">☁️</div>
+            
             <h2>🎬 رحلتي في التمثيل 🚗</h2>
             <p class="timeline-scroll-hint">← اضغط على السنة لمشاهدة الأعمال ←</p>
+            
             <div class="road-container">
+                <!-- Cartoon Car -->
                 <div class="cartoon-car" id="cartoonCar">
                     <div class="car-body">
                         <div class="car-roof">
@@ -118,32 +2140,51 @@
                         </div>
                         <div class="car-light left"></div>
                         <div class="car-light right"></div>
-                        <div class="car-exhaust"><span class="smoke">💨</span></div>
+                        <div class="car-exhaust">
+                            <span class="smoke">💨</span>
+                        </div>
                         <div class="car-wheel left"></div>
                         <div class="car-wheel right"></div>
                     </div>
                 </div>
+                
+                <!-- Cartoon Road -->
                 <div class="cartoon-road">
                     <div class="road-surface"></div>
                     <div class="road-lines"></div>
                     <div class="road-edge top"></div>
                 </div>
-                <div class="year-markers" id="yearMarkers"></div>
+                
+                <!-- Year Markers -->
+                <div class="year-markers" id="yearMarkers">
+                    <!-- Generated by JavaScript -->
+                </div>
             </div>
+            
+            <!-- Trees decoration -->
             <div class="tree tree-1">🌳</div>
             <div class="tree tree-2">🌴</div>
             <div class="tree tree-3">🌲</div>
             <div class="tree tree-4">🌳</div>
             <div class="tree tree-5">🌴</div>
             <div class="tree tree-6">🌲</div>
-            <div class="timeline-nav" id="timelineNav"></div>
+            
+            <!-- Navigation dots -->
+            <div class="timeline-nav" id="timelineNav">
+                <!-- Generated by JavaScript -->
+            </div>
         </section>
 
         <!-- Games Section -->
         <section class="section" id="games">
             <h2>🎮 مسابقات</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: #8b949e;">اختبر معرفتك بأعمال العنود سعود!</p>
+            <p style="text-align: center; margin-bottom: 30px; color: #8b949e;">
+                اختبر معرفتك بأعمال العنود سعود!
+            </p>
+            
+            <!-- Game Container -->
             <div class="game-container">
+                <!-- Start Screen -->
                 <div class="game-screen active" id="gameStart">
                     <div class="game-icon">🎯</div>
                     <h3>مسابقة أعمال العنود سعود</h3>
@@ -156,6 +2197,93 @@
                     <button class="game-btn" onclick="startGame()">🎮 ابدأ المسابقة</button>
                 </div>
 
+                <!-- Emoji Guessing Game -->
+                <div class="emoji-game-container" id="emojiGame">
+                    <!-- Emoji Game Start Screen -->
+                    <div class="emoji-game-screen active" id="emojiGameStart">
+                        <div class="game-icon">🎯</div>
+                        <h3>🎯 لعبة تخمين Emoji</h3>
+                        <p>هل تستطيع تخمين أعمال العنود سعود من الرموز التعبيرية؟</p>
+                        <ul class="game-rules">
+                            <li data-icon="🧩">خمّن العمل من 3 رموز تعبيرية</li>
+                            <li data-icon="⏱️">لديك 15 ثانية لكل سؤال</li>
+                            <li data-icon="⭐">إجابة صحيحة = 20 نقطة + وقت إضافي</li>
+                            <li data-icon="🏆">5 أسئلة عشوائية في كل جولة</li>
+                        </ul>
+                        <button class="game-btn" onclick="startEmojiGame()">🎮 ابدأ اللعبة</button>
+                        <br><br>
+                        <button class="game-btn secondary" onclick="scrollToSection('gameStart')">🔙 العودة للمسابقة الرئيسية</button>
+                    </div>
+
+                    <!-- Emoji Quiz Screen -->
+                    <div class="emoji-game-screen" id="emojiQuizScreen">
+                        <div class="game-progress">
+                            <span id="emojiQuestionProgress">السؤال 1 من 5</span>
+                            <span id="emojiCurrentScore">النتيجة: 0</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="emojiProgressFill"></div>
+                        </div>
+                        
+                        <!-- Timer -->
+                        <div class="emoji-timer">
+                            <span class="emoji-timer-icon">⏱️</span>
+                            <span class="emoji-timer-value" id="emojiTimerValue">15s</span>
+                        </div>
+                        
+                        <div class="question-card">
+                            <span class="question-number" id="emojiQuestionNumber">السؤال #1</span>
+                            <div class="emoji-display" id="emojiDisplay">📝💰😰</div>
+                            <p class="emoji-hint-text" id="emojiHintText">💡</p>
+                        </div>
+                        
+                        <div class="options-grid" id="emojiOptionsGrid">
+                            <!-- Options will be generated here -->
+                        </div>
+                        
+                        <div class="emoji-feedback" id="emojiFeedback"></div>
+                        <div class="emoji-streak" id="emojiStreak" style="display: none;">
+                            <span class="emoji-streak-fire">🔥</span>
+                            <span>سلسلة متتالية: <span class="emoji-streak-count" id="emojiStreakCount">2</span></span>
+                        </div>
+                        <button class="game-btn next-btn" id="emojiNextBtn" onclick="nextEmojiQuestion()">السؤال التالي →</button>
+                    </div>
+
+                    <!-- Emoji Result Screen -->
+                    <div class="emoji-game-screen" id="emojiResultScreen">
+                        <div class="result-icon" id="emojiResultEmoji">🏆</div>
+                        <h3 id="emojiResultTitle">ممتاز!</h3>
+                        <p id="emojiResultMessage">أحسنت!</p>
+                        <div class="emoji-level-badge" id="emojiLevelBadge" style="display: none;">المستوى: محترف</div>
+                        <div id="emojiNewHighScore" style="display: none; color: #d4af37; margin-bottom: 15px;">🎉 رقم قياسي جديد!</div>
+                        
+                        <div class="result-stats">
+                            <div class="stat">
+                                <span class="stat-value" id="emojiFinalScore">0</span>
+                                <span class="stat-label">النقاط</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="emojiCorrectAnswers">0</span>
+                                <span class="stat-label">صحيح</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="emojiWrongAnswers">0</span>
+                                <span class="stat-label">خطأ</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="emojiMaxStreak">0</span>
+                                <span class="stat-label">أفضل سلسلة</span>
+                            </div>
+                        </div>
+                        
+                        <div class="result-actions">
+                            <button class="game-btn" onclick="startEmojiGame()">🔄 إعادة اللعب</button>
+                            <button class="game-btn secondary" onclick="scrollToSection('tvseries')">📺 مشاهدة الأعمال</button>
+                        </div>
+                    </div>
+                </divdiv>
+
+                <!-- Quiz Screen -->
                 <div class="game-screen" id="quizScreen">
                     <div class="game-progress">
                         <span id="questionProgress">السؤال 1 من 5</span>
@@ -164,43 +2292,40 @@
                     <div class="progress-bar">
                         <div class="progress-fill" id="progressFill"></div>
                     </div>
+                    
                     <div class="question-card">
                         <span class="question-number" id="questionNumber">السؤال #1</span>
                         <p class="question-text" id="questionText">...</p>
                     </div>
-                    <div class="options-grid" id="optionsGrid"></div>
+                    
+                    <div class="options-grid" id="optionsGrid">
+                        <!-- Options will be generated here -->
+                    </div>
+                    
                     <div class="feedback" id="feedbackMessage"></div>
                     <button class="game-btn next-btn" id="nextQuestionBtn" onclick="nextQuestion()">السؤال التالي →</button>
                 </div>
 
+                <!-- Result Screen -->
                 <div class="game-screen" id="resultScreen">
                     <div class="result-icon" id="resultEmoji">🏆</div>
                     <h3 id="resultTitle">ممتاز!</h3>
                     <p id="resultMessage">أحسنت!</p>
                     
-                    <!-- Score Display -->
-                    <div class="score-display">
-                        <div class="score-circle">
-                            <span class="score-value" id="finalScore">0</span>
-                            <span class="score-total">/ 400</span>
-                        </div>
-                        <div class="score-percentage" id="scorePercentage">0%</div>
-                    </div>
-                    
                     <div class="result-stats">
-                        <div class="stat correct">
-                            <span class="stat-icon">✅</span>
-                            <span class="stat-value" id="correctAnswers">0</span>
-                            <span class="stat-label">إجابة صحيحة</span>
+                        <div class="stat">
+                            <span class="stat-value" id="finalScore">0</span>
+                            <span class="stat-label">النقاط</span>
                         </div>
-                        <div class="stat wrong">
-                            <span class="stat-icon">❌</span>
+                        <div class="stat">
+                            <span class="stat-value" id="correctAnswers">0</span>
+                            <span class="stat-label">صحيح</span>
+                        </div>
+                        <div class="stat">
                             <span class="stat-value" id="wrongAnswers">0</span>
-                            <span class="stat-label">إجابة خاطئة</span>
+                            <span class="stat-label">خطأ</span>
                         </div>
                     </div>
-                    
-                    <div class="result-grade" id="resultGrade"></div>
                     
                     <div class="result-actions">
                         <button class="game-btn" onclick="startGame()">🔄 إعادة المحاولة</button>
@@ -210,247 +2335,140 @@
             </div>
         </section>
 
-        <!-- Posts Section -->
-        <section class="section posts-section" id="posts">
-            <div class="section-header">
-                <h2>📸 المنشورات</h2>
-                <span class="post-count" id="totalPosts">(0)</span>
-            </div>
-            
-            <!-- Posts Navigation -->
-            <div class="posts-nav">
-                <div class="posts-tabs">
-                    <button class="post-tab active" data-filter="all" onclick="filterPosts('all')">
-                        <span class="tab-icon">🌟</span>
-                        <span class="tab-text">الكل</span>
-                    </button>
-                    <button class="post-tab" data-filter="image" onclick="filterPosts('image')">
-                        <span class="tab-icon">🖼️</span>
-                        <span class="tab-text">الصور</span>
-                    </button>
-                    <button class="post-tab" data-filter="video" onclick="filterPosts('video')">
-                        <span class="tab-icon">🎬</span>
-                        <span class="tab-text">الفيديوهات</span>
-                    </button>
-                    <button class="post-tab" data-filter="text" onclick="filterPosts('text')">
-                        <span class="tab-icon">📝</span>
-                        <span class="tab-text">النصوص</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Add Post Form -->
-            <div class="add-post-card">
-                <div class="add-post-header">
-                    <span class="add-icon">➕</span>
-                    <h3>إضافة منشور جديد</h3>
-                </div>
-                
-                <!-- Upload Type Selector -->
-                <div class="upload-type-selector">
-                    <button class="upload-type-btn active" data-type="image" onclick="selectUploadType('image')">
-                        <span class="type-icon">📷</span>
-                        <span class="type-label">صورة</span>
-                    </button>
-                    <button class="upload-type-btn" data-type="video" onclick="selectUploadType('video')">
-                        <span class="type-icon">🎬</span>
-                        <span class="type-label">فيديو</span>
-                    </button>
-                    <button class="upload-type-btn" data-type="text" onclick="selectUploadType('text')">
-                        <span class="type-icon">📝</span>
-                        <span class="type-label">نص</span>
-                    </button>
-                </div>
-                
-                <!-- Upload Sections -->
-                <div class="upload-sections">
-                    <div class="upload-section active" id="imageUploadSection">
-                        <div class="file-drop-zone" onclick="document.getElementById('imageInput').click()">
-                            <span class="drop-icon">🖼️</span>
-                            <p>انقر لاختيار صورة أو اسحبها هنا</p>
-                            <span class="drop-formats">JPG, PNG, GIF</span>
-                        </div>
-                        <input type="file" id="imageInput" accept="image/*" onchange="handleImageUpload(event)" hidden>
-                        <div class="file-preview" id="imagePreview"></div>
-                    </div>
-                    
-                    <div class="upload-section" id="videoUploadSection">
-                        <div class="file-drop-zone" onclick="document.getElementById('videoInput').click()">
-                            <span class="drop-icon">🎬</span>
-                            <p>انقر لاختيار فيديو أو اسحبه هنا</p>
-                            <span class="drop-formats">MP4, MOV, AVI</span>
-                        </div>
-                        <input type="file" id="videoInput" accept="video/*" onchange="handleVideoUpload(event)" hidden>
-                        <div class="file-preview" id="videoPreview"></div>
-                    </div>
-                    
-                    <div class="upload-section" id="textUploadSection">
-                        <textarea id="postTextInput" class="post-text-input" placeholder="ماذا تريد أن تشاركه اليوم؟"></textarea>
-                        <div class="text-actions">
-                            <div class="text-tools">
-                                <button class="text-tool" title="إضافة إيموجي">😊</button>
-                                <button class="text-tool" title="إضافة hashtag">#</button>
-                                <button class="text-tool" title="تنسيق">📋</button>
-                            </div>
-                            <button class="publish-btn" onclick="addTextPost()">
-                                <span>🚀</span> نشر
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Posts Grid -->
-            <div class="posts-container">
-                <div class="posts-grid" id="postsGrid">
-                    <div class="empty-state" id="emptyPosts">
-                        <div class="empty-icon">📭</div>
-                        <h3>لا توجد منشورات بعد</h3>
-                        <p>كن أول من يشارك!</p>
-                        <button class="empty-action" onclick="scrollToSection('posts')">➕ أضف منشور</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Load More -->
-            <div class="load-more-container" id="loadMoreContainer" style="display: none;">
-                <button class="load-more-btn" onclick="loadMorePosts()">
-                    <span>📥</span> تحميل المزيد
-                </button>
-            </div>
-        </section>
-
         <!-- Fan Messages Section -->
-        <section class="section messages-section" id="messages">
-            <div class="section-header">
-                <h2>رسائل المعجبين <span id="totalMessages" style="font-size: 0.7em; color: #8b949e;">(0)</span></h2>
-            </div>
-            <p style="text-align: center; margin-bottom: 30px; color: #8b949e;">شاركنا رأيك وأرسل رسالة للعنود سعود ✨</p>
+        <section class="section" id="messages">
+            <h2>رسائل المعجبين <span id="totalMessages" style="font-size: 0.7em; color: #8b949e;">(0)</span></h2>
             
-            <!-- Add Message Form -->
-            <div class="add-message-card">
-                <div class="add-message-header">
-                    <span class="add-icon">✉️</span>
-                    <h3>إرسال رسالة جديدة</h3>
+            <!-- Messages Stats -->
+            <div class="messages-stats">
+                <div class="messages-stat">
+                    <span class="messages-stat-value" id="messagesCount">0</span>
+                    <span class="messages-stat-label">رسالة</span>
                 </div>
-                <form class="fan-form" id="fanForm">
-                    <div class="form-group">
-                        <input type="text" id="fanName" placeholder="👤 اسمك الكريم" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="fanMessage" rows="5" placeholder="💭 اكتب رسالتك للعنود سعود هنا..." required></textarea>
-                    </div>
-                    <button type="submit" class="send-message-btn">
-                        <span>🚀</span> إرسال الرسالة
-                    </button>
-                </form>
+                <div class="messages-stat">
+                    <span class="messages-stat-value" id="totalLikes">0</span>
+                    <span class="messages-stat-label">إعجاب</span>
+                </div>
+                <div class="messages-stat">
+                    <span class="live-indicator">
+                        <span class="live-dot"></span>
+                        <span id="syncStatus">مزامنة</span>
+                    </span>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-bottom: 30px; color: #8b949e;">
+                شاركنا رأيك وأرسل رسالة للعنود سعود 💬
+            </p>
+            
+            <!-- Messages Toolbar -->
+            <div class="messages-toolbar">
+                <div class="messages-search">
+                    <input type="text" id="messageSearch" placeholder="🔍 ابحث في الرسائل..." oninput="searchMessages(this.value)">
+                </div>
+                <div class="messages-filter-bar">
+                    <button class="messages-filter-btn active" onclick="filterMessages('all')">الكل</button>
+                    <button class="messages-filter-btn" onclick="filterMessages('recent')">الأحدث</button>
+                    <button class="messages-filter-btn" onclick="filterMessages('popular')">الأكثر إعجاباً</button>
+                    <button class="messages-filter-btn" onclick="refreshMessages()">🔄 تحديث</button>
+                </div>
+            </div>
+            
+            <!-- Twitter-like Compose Box -->
+            <div class="compose-box">
+                <div class="compose-box-inner">
+                    <form id="fanForm">
+                        <div class="compose-row">
+                            <input type="text" id="fanName" placeholder="👤 اسمك" required>
+                        </div>
+                        <textarea id="fanMessage" placeholder="✍️ اكتب رسالتك للعنود سعود هنا..." rows="3" oninput="updateCharCount(this)"></textarea>
+                        <div class="compose-actions">
+                            <div class="compose-tools">
+                                <span class="char-counter" id="charCount">0/500</span>
+                            </div>
+                            <button type="submit" class="compose-submit">📤 نشر الرسالة</button>
+                        </div>
+                    </form>
+                </div>
             </div>
             
             <!-- Messages Display -->
             <div class="messages-display" id="messagesDisplay">
                 <div class="no-messages" id="noMessages">
-                    <div class="empty-icon">💬</div>
-                    <h3>لا توجد رسائل حالياً</h3>
-                    <p>كن أول من يكتب رسالة للعنود سعود!</p>
+                    <p style="font-size: 1.2em; margin-bottom: 10px;">💬</p>
+                    <p>لا توجد رسائل حالياً. كن أول من يكتب رسالة للعنود سعود!</p>
                 </div>
             </div>
+            
+            <!-- Export Button -->
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="export-messages-btn" onclick="exportMessages()">
+                    📤 تصدير الرسائل
+                </button>
+                <button class="export-messages-btn" onclick="importMessagesPrompt()" style="margin-right: 10px;">
+                    📥 استيراد الرسائل
+                </button>
+            </div>
+            
+            <!-- Last Update Time -->
+            <p style="text-align: center; margin-top: 20px; color: #8b949e; font-size: 0.85em;">
+                آخر تحديث: <span id="lastUpdate">--:--</span>
+            </p>
         </section>
 
-    </div>
-
-    <!-- Social Media Section -->
-    <section class="social-section">
-        <div class="social-container">
-            <h2 class="social-title">تابعني على منصات التواصل</h2>
-            <p class="social-subtitle">ابقى على اطلاع بآخر أخباري وأعمالي</p>
+        <!-- Social Media Section -->
+        <section class="section" id="social">
+            <h2>تابعوني على وسائل التواصل</h2>
             <div class="social-links">
-                <!-- TikTok -->
-                <a href="https://www.tiktok.com/@theanoudsaud?_r=1&_t=ZS-92icnJQG7Sm" target="_blank" class="social-card tiktok" title="TikTok">
-                    <div class="social-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                        </svg>
-                    </div>
-                    <div class="social-info">
-                        <span class="social-name">TikTok</span>
-                        <span class="social-handle">@theanoudsaud</span>
-                    </div>
-                    <div class="social-arrow">→</div>
+                <a href="https://www.instagram.com/theanoudsaud" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    إنستغرام
                 </a>
-
-                <!-- X (Twitter) -->
-                <a href="https://x.com/theanoudsaud?s=11&t=iQp_FNpYhiY0DlXT3A9Pfg" target="_blank" class="social-card twitter" title="X (Twitter)">
-                    <div class="social-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                    </div>
-                    <div class="social-info">
-                        <span class="social-name">X (تويتر)</span>
-                        <span class="social-handle">@theanoudsaud</span>
-                    </div>
-                    <div class="social-arrow">→</div>
+                <a href="https://www.snapchat.com/add/theanoudsoud" target="_blank" rel="noopener noreferrer">
+                    <span style="font-size: 24px;">👻</span>
+                    سناب شات
                 </a>
-
-                <!-- Facebook -->
-                <a href="https://www.facebook.com/share/17u8F7q9X2/" target="_blank" class="social-card facebook" title="Facebook">
-                    <div class="social-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </div>
-                    <div class="social-info">
-                        <span class="social-name">Facebook</span>
-                        <span class="social-handle">العنود سعود</span>
-                    </div>
-                    <div class="social-arrow">→</div>
+                <a href="https://www.facebook.com/share/17u8F7q9X2/" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    فيسبوك
                 </a>
-
-                <!-- Snapchat -->
-                <a href="https://www.snapchat.com/add/theanoudsoud" target="_blank" class="social-card snapchat" title="Snapchat">
-                    <div class="social-icon">
-                        <span class="snapchat-emoji">👻</span>
-                    </div>
-                    <div class="social-info">
-                        <span class="social-name">Snapchat</span>
-                        <span class="social-handle">@theanoudsoud</span>
-                    </div>
-                    <div class="social-arrow">→</div>
+                <a href="https://x.com/theanoudsaud" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    إكس (تويتر)
                 </a>
-
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/theanoudsaud?igsh=aW1sMm5lMmxvNXh5" target="_blank" class="social-card instagram" title="Instagram">
-                    <div class="social-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-                        </svg>
-                    </div>
-                    <div class="social-info">
-                        <span class="social-name">Instagram</span>
-                        <span class="social-handle">@theanoudsaud</span>
-                    </div>
-                    <div class="social-arrow">→</div>
+                <a href="https://www.tiktok.com/@theanoudsaud" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                    </svg>
+                    تيك توك
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; <span id="year"></span> العنود سعود. جميع الحقوق محفوظة.</p>
         <p style="margin-top: 10px; color: #d4af37;">✨ تم البرمجة بواسطة حبيبة الأمير ✨</p>
-        <p>صُنع بحب</p>
+        <p>صُنع بحب ♥</p>
     </footer>
 
     <!-- Series Summary Modal -->
     <div class="series-summary-modal" id="seriesSummaryModal">
         <div class="series-summary-content">
             <div class="series-summary-header">
-                <h3 id="modalSeriesTitle"></h3>
+                <h3 id="modalSeriesTitle">عنوان المسلسل</h3>
+                <button class="close-summary-btn" onclick="closeSeriesSummary()">×</button>
             </div>
             <div class="series-summary-body">
-                <span class="year-badge" id="modalSeriesYear"></span>
-                <p id="modalSeriesSummary"></p>
+                <span class="year-badge" id="modalSeriesYear">2020</span>
+                <p id="modalSeriesSummary">ملخص المسلسل...</p>
             </div>
         </div>
     </div>
@@ -458,30 +2476,855 @@
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scrollTop" aria-label="العودة للأعلى">↑</button>
 
-    <!-- JavaScript -->
-    <script src="game.js"></script>
+    <!-- Fan Messages CSS -->
+    <link rel="stylesheet" href="fan-messages.css">
     
-    <!-- Snow Effect -->
+    <!-- JavaScript -->
+    <script src="fan-messages.js"></script>
     <script>
-        function createSnowflakes() {
-            const snowflakes = ['❄', '❅', '❆', '✻', '✼', '❉'];
-            const container = document.body;
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading').classList.add('hidden');
+            }, 500);
+        });
+
+        // Update Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Profile Picture Functions
+        function changeProfilePicture(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                    // Save to localStorage
+                    localStorage.setItem('profilePicture', e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Theme Toggle Function
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const isLightMode = document.body.classList.contains('light-mode');
+            const themeBtn = document.querySelector('.theme-btn');
             
+            if (isLightMode) {
+                themeBtn.innerHTML = '☀️';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeBtn.innerHTML = '🌙';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Language Toggle Function
+        function toggleLanguage() {
+            const langBtn = document.querySelector('.lang-btn');
+            const isArabic = document.documentElement.getAttribute('lang') === 'ar';
+            
+            if (isArabic) {
+                // Switch to English
+                document.documentElement.setAttribute('lang', 'en');
+                document.documentElement.setAttribute('dir', 'ltr');
+                // Button shows what language you can switch TO (Arabic)
+                langBtn.textContent = 'عربي';
+                localStorage.setItem('language', 'en');
+                updateEnglishContent();
+            } else {
+                // Switch to Arabic
+                document.documentElement.setAttribute('lang', 'ar');
+                document.documentElement.setAttribute('dir', 'rtl');
+                // Button shows what language you can switch TO (English)
+                langBtn.textContent = 'English';
+                localStorage.setItem('language', 'ar');
+                updateArabicContent();
+            }
+        }
+
+        // Update content for English
+        function updateEnglishContent() {
+            const translations = {
+                'nav-about': 'About Me',
+                'nav-tvseries': 'My TV Works',
+                'nav-photos': 'Photos',
+                'nav-messages': 'Fan Messages',
+                'header-title': 'Anoud Saud',
+                'header-subtitle': 'Saudi Actress | Featured Drama Works',
+                'about-title': 'About the Actress',
+                'about-text-1': 'Anoud Saud is a talented Saudi actress, distinguished by her unique acting ability and proficiency in portraying diverse characters with mastery and professionalism. She was born in the Kingdom of Saudi Arabia and grew up in an environment rich in Arab and Islamic heritage and culture, which enriched her artistic career and inspired her drama works.',
+                'about-text-2': 'She began her artistic career in 2019 and participated in many prominent Saudi series that achieved widespread success at both local and regional levels. She is distinguished by her ability to choose strong and impactful roles, and has won the admiration of audiences and critics alike with her distinguished performance.',
+                'about-text-3': 'Through her drama works, Anoud Saud seeks to present authentic Saudi content that reflects the reality and noble values of Saudi society. She also aspires to contribute to the flourishing of Saudi drama at the global level, and believes that acting is a universal language that transcends borders and geography.',
+                'tvseries-title': 'My TV Works',
+                'filter-all': 'All',
+                'photos-title': 'Photos',
+                'upload-title': 'Add New Photo',
+                'upload-btn': 'Choose Photo',
+                'no-photos': 'No photos yet. Add your first photo!',
+                'messages-title': 'Fan Messages',
+                'messages-subtitle': 'Share your opinion and send a message to Anoud Saud',
+                'fan-name': 'Your Name',
+                'fan-message': 'Write your message to Anoud Saud here...',
+                'submit-btn': 'Send Message',
+                'no-messages': 'No messages yet. Be the first to write a message to Anoud Saud!',
+                'social-title': 'Follow Me on Social Media',
+                'instagram': 'Instagram',
+                'twitter': 'X (Twitter)',
+                'facebook': 'Facebook',
+                'youtube': 'YouTube',
+                'linkedin': 'LinkedIn',
+                'footer-copyright': 'Anoud Saud. All rights reserved.',
+                'footer-credit': '✨ Programming by Habibt Al-Amir ✨',
+                'footer-made': 'Made with love ♥'
+            };
+
+            // Update navigation
+            document.querySelector('nav a[href="#about"]').textContent = translations['nav-about'];
+            document.querySelector('nav a[href="#tvseries"]').textContent = translations['nav-tvseries'];
+            document.querySelector('nav a[href="#photos"]').textContent = translations['nav-photos'];
+            document.querySelector('nav a[href="#messages"]').textContent = translations['nav-messages'];
+
+            // Update header
+            document.querySelector('header h1').textContent = translations['header-title'];
+            document.querySelector('header p').textContent = translations['header-subtitle'];
+
+            // Update about section
+            document.querySelector('#about h2').textContent = translations['about-title'];
+            const aboutPs = document.querySelectorAll('#about p');
+            aboutPs[0].textContent = translations['about-text-1'];
+            aboutPs[1].textContent = translations['about-text-2'];
+            aboutPs[2].textContent = translations['about-text-3'];
+
+            // Update TV series section
+            document.querySelector('#tvseries h2').textContent = translations['tvseries-title'];
+            document.querySelector('.filter-btn[data-filter="all"]').textContent = translations['filter-all'];
+
+            // Update photos section
+            document.querySelector('#photos h2').textContent = translations['photos-title'];
+            document.querySelector('.photo-upload-form h3').textContent = translations['upload-title'];
+            document.querySelector('.upload-btn').childNodes[0].textContent = translations['upload-btn'] + ' ';
+            document.querySelector('#noPhotos p').textContent = translations['no-photos'];
+
+            // Update messages section
+            document.querySelector('#messages h2').textContent = translations['messages-title'];
+            document.querySelector('#messages p').textContent = translations['messages-subtitle'];
+            document.querySelector('#fanName').placeholder = translations['fan-name'];
+            document.querySelector('#fanMessage').placeholder = translations['fan-message'];
+            document.querySelector('#fanForm button').textContent = translations['submit-btn'];
+            document.querySelector('#noMessages p:last-child').textContent = translations['no-messages'];
+
+            // Update social section
+            document.querySelector('#social h2').textContent = translations['social-title'];
+
+            // Update footer
+            document.querySelector('footer p:first-child').innerHTML = '&copy; ' + new Date().getFullYear() + ' ' + translations['footer-copyright'];
+            document.querySelector('footer p:nth-child(2)').textContent = translations['footer-credit'];
+            document.querySelector('footer p:last-child').textContent = translations['footer-made'];
+        }
+
+        // Update content for Arabic
+        function updateArabicContent() {
+            const translations = {
+                'nav-about': 'نبذة عني',
+                'nav-tvseries': 'أعمالي الدرامية',
+                'nav-photos': 'الصور',
+                'nav-messages': 'رسائل المعجبين',
+                'header-title': 'العنود سعود',
+                'header-subtitle': 'ممثلة سعودية | أعمال درامية مميزة',
+                'about-title': 'نبذة عن الممثلة',
+                'about-text-1': 'العنود سعود ممثلة سعودية موهوبة، تتميز بموهبة تمثيلية فريدة وقدرة على تجسيد الشخصيات المتنوعة بإتقان واحترافية عالية. ولدت في المملكة العربية السعودية ونشأت في بيئة غنية بالتراث والثقافة العربية والإسلامية، مما أثرى مسيرتها الفنية وألهم أعمالها الدرامية.',
+                'about-text-2': 'بدأت مسيرتها الفنية في عام 2019، وشاركت في العديد من المسلسلات السعودية البارزة التي لاقت نجاحاً واسعاً على المستويين المحلي والإقليمي. تتميز بقدرتها على اختيار أدوار قوية ومؤثرة، وحصلت على إعجاب الجمهور والنقاد على حد سواء بأدائها المتميز.',
+                'about-text-3': 'من خلال أعمالها الدرامية، تسعى العنود سعود إلى تقديم محتوى سعودي أصيل يعكس واقع المجتمع السعودي وقيّمه النبيلة. كما تطمح إلى المساهمة في ازدهار الدراما السعودية على المستوى العالمي، وتؤمن بأن الفن التمثيلي لغة عالمية تتجاوز الحدود والجغرافيا.',
+                'tvseries-title': 'أعمالي الدرامية',
+                'filter-all': 'الكل',
+                'photos-title': 'الصور',
+                'upload-title': 'إضافة صورة جديدة',
+                'upload-btn': 'اختيار صورة',
+                'no-photos': 'لا توجد صور حالياً. أضف أول صورة!',
+                'messages-title': 'رسائل المعجبين',
+                'messages-subtitle': 'شاركنا رأيك وأرسل رسالة للعنود سعود',
+                'fan-name': 'اسمك',
+                'fan-message': 'اكتب رسالتك للعنود سعود هنا...',
+                'submit-btn': 'إرسال الرسالة',
+                'no-messages': 'لا توجد رسائل حالياً. كن أول من يكتب رسالة للعنود سعود!',
+                'social-title': 'تابعوني على وسائل التواصل',
+                'footer-copyright': 'العنود سعود. جميع الحقوق محفوظة.',
+                'footer-credit': '✨ تم البرمجة بواسطة حبيبة الأمير ✨',
+                'footer-made': 'صُنع بحب ♥'
+            };
+
+            // Update navigation
+            document.querySelector('nav a[href="#about"]').textContent = translations['nav-about'];
+            document.querySelector('nav a[href="#tvseries"]').textContent = translations['nav-tvseries'];
+            document.querySelector('nav a[href="#photos"]').textContent = translations['nav-photos'];
+            document.querySelector('nav a[href="#messages"]').textContent = translations['nav-messages'];
+
+            // Update header
+            document.querySelector('header h1').textContent = translations['header-title'];
+            document.querySelector('header p').textContent = translations['header-subtitle'];
+
+            // Update about section
+            document.querySelector('#about h2').textContent = translations['about-title'];
+            const aboutPs = document.querySelectorAll('#about p');
+            aboutPs[0].textContent = translations['about-text-1'];
+            aboutPs[1].textContent = translations['about-text-2'];
+            aboutPs[2].textContent = translations['about-text-3'];
+
+            // Update TV series section
+            document.querySelector('#tvseries h2').textContent = translations['tvseries-title'];
+            document.querySelector('.filter-btn[data-filter="all"]').textContent = translations['filter-all'];
+
+            // Update photos section
+            document.querySelector('#photos h2').textContent = translations['photos-title'];
+            document.querySelector('.photo-upload-form h3').textContent = translations['upload-title'];
+            document.querySelector('.upload-btn').childNodes[0].textContent = translations['upload-btn'] + ' ';
+            document.querySelector('#noPhotos p').textContent = translations['no-photos'];
+
+            // Update messages section
+            document.querySelector('#messages h2').textContent = translations['messages-title'];
+            document.querySelector('#messages p').textContent = translations['messages-subtitle'];
+            document.querySelector('#fanName').placeholder = translations['fan-name'];
+            document.querySelector('#fanMessage').placeholder = translations['fan-message'];
+            document.querySelector('#fanForm button').textContent = translations['submit-btn'];
+            document.querySelector('#noMessages p:last-child').textContent = translations['no-messages'];
+
+            // Update social section
+            document.querySelector('#social h2').textContent = translations['social-title'];
+
+            // Update footer
+            document.querySelector('footer p:first-child').innerHTML = '&copy; ' + new Date().getFullYear() + ' ' + translations['footer-copyright'];
+            document.querySelector('footer p:nth-child(2)').textContent = translations['footer-credit'];
+            document.querySelector('footer p:last-child').textContent = translations['footer-made'];
+        }
+
+        // Series Summary Functions
+        function showSeriesSummary(title, year, summary) {
+            document.getElementById('modalSeriesTitle').textContent = title;
+            document.getElementById('modalSeriesYear').textContent = year;
+            document.getElementById('modalSeriesSummary').textContent = summary;
+            document.getElementById('seriesSummaryModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSeriesSummary() {
+            document.getElementById('seriesSummaryModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('seriesSummaryModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSeriesSummary();
+            }
+        });
+
+        // Initialize cartoon timeline on page load
+        window.addEventListener('load', function() {
+            generateCartoonTimeline();
+        });
+
+        // Cartoon Timeline Data
+        const timelineData = [
+            {
+                year: '2019',
+                works: [
+                    { title: 'بنات الملاكمة', role: 'شمس', featured: true }
+                ]
+            },
+            {
+                year: '2020',
+                works: [
+                    { title: 'مذكرة ابتزاز', role: 'هديل' },
+                    { title: 'كنا امس', role: 'لميس' },
+                    { title: 'بعد حين', role: 'خلود' },
+                    { title: 'ضحايا حلال', role: 'ملك' }
+                ]
+            },
+            {
+                year: '2021',
+                works: [
+                    { title: 'ستوديو', role: 'أميرة' },
+                    { title: 'لعبة كبار', role: 'مرزوقة' }
+                ]
+            },
+            {
+                year: '2022',
+                works: [
+                    { title: 'عيال نوف', role: 'صمود' },
+                    { title: 'ستوديو', role: 'أميرة' }
+                ]
+            },
+            {
+                year: '2023',
+                works: [
+                    { title: 'دكة العبيد', role: 'رحمه', featured: true },
+                    { title: 'حوجن', role: 'جمارى' },
+                    { title: 'كلاود كيتشن', role: 'عبير' }
+                ]
+            },
+            {
+                year: '2025',
+                works: [
+                    { title: 'أمي', role: 'مريم', featured: true }
+                ]
+            }
+        ];
+
+        function generateCartoonTimeline() {
+            const markersContainer = document.getElementById('yearMarkers');
+            const navContainer = document.getElementById('timelineNav');
+            
+            timelineData.forEach((item, index) => {
+                // Create year marker
+                const markerDiv = document.createElement('div');
+                markerDiv.className = 'year-marker' + (index === 0 ? ' active' : '');
+                markerDiv.dataset.year = item.year;
+                markerDiv.dataset.index = index;
+                
+                // Create works list HTML
+                let worksListHtml = '';
+                item.works.forEach(work => {
+                    worksListHtml += `
+                        <div class="work-item ${work.featured ? 'featured' : ''}" 
+                             onclick="showSeriesSummary('${work.title}', '${item.year}', '🎭 ${work.role}')">
+                            <h5>${work.title}</h5>
+                            <div class="role">${work.role}</div>
+                        </div>
+                    `;
+                });
+                
+                markerDiv.innerHTML = `
+                    <div class="works-popup">
+                        <h4>أعمال ${item.year}</h4>
+                        <div class="works-list">
+                            ${worksListHtml}
+                        </div>
+                    </div>
+                    <button class="year-marker-btn" onclick="moveCarToYear(${index})">${item.year}</button>
+                    <div class="year-road-marker"></div>
+                `;
+                
+                markersContainer.appendChild(markerDiv);
+                
+                // Create navigation dot
+                const navBtn = document.createElement('button');
+                navBtn.className = 'timeline-nav-btn' + (index === 0 ? ' active' : '');
+                navBtn.dataset.index = index;
+                navBtn.addEventListener('click', () => moveCarToYear(index));
+                navContainer.appendChild(navBtn);
+            });
+            
+            // Position car at first year
+            moveCarToYear(0, false);
+        }
+
+        function moveCarToYear(index, animate = true) {
+            const markers = document.querySelectorAll('.year-marker');
+            const navButtons = document.querySelectorAll('.timeline-nav-btn');
+            const car = document.getElementById('cartoonCar');
+            const container = document.querySelector('.road-container');
+            
+            if (markers[index]) {
+                // Update active state
+                markers.forEach(el => el.classList.remove('active'));
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                
+                markers[index].classList.add('active');
+                navButtons[index].classList.add('active');
+                
+                // Calculate car position based on marker
+                const markerBtn = markers[index].querySelector('.year-marker-btn');
+                const markerRect = markerBtn.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                const roadWidth = container.offsetWidth;
+                
+                // Calculate percentage position on the road
+                const markerCenter = markerRect.left - containerRect.left + (markerRect.width / 2);
+                const positionPercent = (markerCenter / roadWidth) * 100;
+                
+                // Move car to that position
+                car.style.left = positionPercent + '%';
+                
+                // Scroll container to show the marker if needed
+                const scrollPos = markerRect.left - containerRect.left + (markerRect.width / 2) - (container.offsetWidth / 2);
+                container.scrollTo({
+                    left: scrollPos,
+                    behavior: animate ? 'smooth' : 'auto'
+                });
+            }
+        }
+
+        // Initialize cartoon timeline on page load
+        window.addEventListener('load', function() {
+            generateCartoonTimeline();
+        });
+
+        // ========================================
+        // Quiz Game - Anoud Saud Works
+        // ========================================
+
+        // Quiz questions database - Extended with more questions
+        const quizQuestions = [
+            // أسئلة الأدوار
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "مذكرة ابتزاز"؟',
+                correct: 'هديل',
+                options: ['مريم', 'هديل', 'لميس', 'سارة']
+            },
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "بنات الملاكمة"؟',
+                correct: 'شمس',
+                options: ['شمس', 'لميس', 'هديل', 'سارة']
+            },
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "دكة العبيد"؟',
+                correct: 'رحمه',
+                options: ['رحمه', 'عبير', 'جمارى', 'مريم']
+            },
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "كلاود كيتشن"؟',
+                correct: 'عبير',
+                options: ['عبير', 'رحمه', 'جمارى', 'مريم']
+            },
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في فيلم "حوجن"؟',
+                correct: 'جمارى',
+                options: ['جمارى', 'عبير', 'رحمه', 'مريم']
+            },
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في فيلم "أمي"؟',
+                correct: 'مريم',
+                options: ['مريم', 'هديل', 'شمس', 'خلود']
+            },
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "ستوديو"؟',
+                correct: 'أميرة',
+                options: ['أميرة', 'مرزوقة', 'صمود', 'ملك']
+            },
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في فيلم "لعبة كبار"؟',
+                correct: 'مرزوقة',
+                options: ['مرزوقة', 'أميرة', 'صمود', 'مريم']
+            },
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "عيال نوف"؟',
+                correct: 'صمود',
+                options: ['صمود', 'لميس', 'خلود', 'ملك']
+            },
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "كنا امس"؟',
+                correct: 'لميس',
+                options: ['لميس', 'هديل', 'شمس', 'خلود']
+            },
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "بعد حين"؟',
+                correct: 'خلود',
+                options: ['خلود', 'ملك', 'لميس', 'هديل']
+            },
+            {
+                type: 'role',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "ضحايا حلال"؟',
+                correct: 'ملك',
+                options: ['ملك', 'خلود', 'لميس', 'هديل']
+            },
+            
+            // أسئلة السنوات
+            {
+                type: 'work',
+                question: 'في أي عام بدأت العنود سعود مسيرتها الفنية؟',
+                correct: '2019',
+                options: ['2018', '2019', '2020', '2021']
+            },
+            {
+                type: 'work',
+                question: 'في أي سنة تم عرض فيلم "أمي" الذي شاركت فيه العنود سعود؟',
+                correct: '2025',
+                options: ['2023', '2024', '2025', '2022']
+            },
+            {
+                type: 'work',
+                question: 'كم عدد الأعمال التي شاركت فيها العنود سعود في عام 2020؟',
+                correct: '4',
+                options: ['2', '3', '4', '5']
+            },
+            {
+                type: 'work',
+                question: 'كم عدد الأعمال التي شاركت فيها العنود سعود في عام 2023؟',
+                correct: '3',
+                options: ['2', '3', '4', '5']
+            },
+            {
+                type: 'work',
+                question: 'كم عدد المواسم التي شارك فيها مسلسل "ستوديو"؟',
+                correct: '2',
+                options: ['1', '2', '3', '4']
+            },
+            
+            // أسئلة الأفلام
+            {
+                type: 'work',
+                question: 'ما اسم الفيلم الذي لعبت فيه العنود سعود دور "أميرة"؟',
+                correct: 'ستوديو',
+                options: ['ستوديو', 'لعبة كبار', 'عيال نوف', 'حوجن']
+            },
+            {
+                type: 'work',
+                question: 'ما اسم الفيلم الذي لعبت فيه العنود سعود دور "مرزوقة"؟',
+                correct: 'لعبة كبار',
+                options: ['ستوديو', 'لعبة كبار', 'عيال نوف', 'مذكرة ابتزاز']
+            },
+            {
+                type: 'work',
+                question: 'ما اسم الفيلم الذي لعبت فيه العنود سعود دور "جمارى"؟',
+                correct: 'حوجن',
+                options: ['دكة العبيد', 'حوجن', 'كلاود كيتشن', 'أمي']
+            },
+            
+            // أسئلة إضافية متنوعة
+            {
+                type: 'details',
+                question: 'ما اسم المسلسل الذي يُعتبر من أبرز أعمال العنود سعود في عام 2023؟',
+                correct: 'دكة العبيد',
+                options: ['دكة العبيد', 'حوجن', 'كلاود كيتشن', 'ستوديو']
+            },
+            {
+                type: 'details',
+                question: 'في أي فيلم لعبت العنود سعود دور "رحمه"؟',
+                correct: 'دكة العبيد',
+                options: ['دكة العبيد', 'حوجن', 'كلاود كيتشن', 'أمي']
+            },
+            {
+                type: 'details',
+                question: 'ما أول مسلسل شاركته العنود سعود في مسيرتها الفنية؟',
+                correct: 'بنات الملاكمة',
+                options: ['بنات الملاكمة', 'مذكرة ابتزاز', 'كنا امس', 'بعد حين']
+            },
+            {
+                type: 'details',
+                question: 'كم عدد المسلسلات التي شاركت فيها العنود سعود في عام 2021؟',
+                correct: '2',
+                options: ['1', '2', '3', '4']
+            },
+            {
+                type: 'details',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في أول مسلسل درامي؟',
+                correct: 'شمس',
+                options: ['شمس', 'هديل', 'أميرة', 'مريم']
+            },
+            {
+                type: 'details',
+                question: 'في أي عام تم عرض مسلسل "بنات الملاكمة"؟',
+                correct: '2019-2020',
+                options: ['2018-2019', '2019-2020', '2020-2021', '2021-2022']
+            },
+            {
+                type: 'details',
+                question: 'ما اسم الفيلم الذي يتناول قصة عن الأمومة في 2025؟',
+                correct: 'أمي',
+                options: ['أمي', 'أم', 'الأم', 'حنين']
+            },
+            {
+                type: 'details',
+                question: 'كم إجمالي عدد الأعمال الدرامية للعنود سعود حتى 2025؟',
+                correct: '13',
+                options: ['10', '11', '12', '13']
+            },
+            {
+                type: 'details',
+                question: 'ما اسم الفيلم الكوميدي الذي لعبت فيه العنود سعود دور "مرزوقة"؟',
+                correct: 'لعبة كبار',
+                options: ['لعبة كبار', 'ستوديو', 'عيال نوف', 'بنات الملاكمة']
+            },
+            {
+                type: 'details',
+                question: 'في أي عام شاركت العنود سعود في فيلم "دكة العبيد"؟',
+                correct: '2023',
+                options: ['2021', '2022', '2023', '2024']
+            },
+            {
+                type: 'details',
+                question: 'ما اسم الشخصية التي لعبتها العنود سعود في مسلسل "بنات الملاكمة" من بنات؟',
+                correct: 'شمس',
+                options: ['شمس', 'لميس', 'هديل', 'خلود']
+            },
+            {
+                type: 'details',
+                question: 'كم عدد الأدوار التي لعبتها العنود سعود في مسلسل "ستوديو"؟',
+                correct: 'دور واحد',
+                options: ['دور واحد', 'دوران', 'ثلاثة أدوار', 'أربعة أدوار']
+            },
+            {
+                type: 'details',
+                question: 'ما نوع الدور الذي لعبته العنود سعود في فيلم "أمي"؟',
+                correct: 'دور الأم مريم',
+                options: ['دور الأخت', 'دور الأم مريم', 'دور صديقة', 'دور الجارة']
+            },
+            {
+                type: 'details',
+                question: 'في أي شهر عادةً تُعرض المسلسلات السعودية الرمضانية؟',
+                correct: 'رمضان',
+                options: ['رمضان', 'شعبان', 'رجب', 'شوال']
+            },
+            {
+                type: 'details',
+                question: 'ما اسم المسلسل الذي يُصنف ضمن الدراما الاجتماعية؟',
+                correct: 'عيال نوف',
+                options: ['عيال نوف', 'لعبة كبار', 'بنات الملاكمة', 'كلاود كيتشن']
+            }
+        ];
+
+        // Game state
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let correctAnswers = 0;
+        let wrongAnswers = 0;
+
+        // Start the game
+        function startGame() {
+            // Reset state
+            currentQuestionIndex = 0;
+            score = 0;
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            
+            // Select 5 random questions
+            currentQuestions = shuffleArray([...quizQuestions]).slice(0, 5);
+            
+            // Hide start screen and result screen, show quiz screen
+            document.getElementById('gameStart').style.display = 'none';
+            document.getElementById('resultScreen').classList.remove('active');
+            document.getElementById('quizScreen').classList.add('active');
+            
+            // Show first question
+            showQuestion();
+        }
+
+        // Show current question
+        function showQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            
+            // Update progress
+            document.getElementById('questionProgress').textContent = 'السؤال ' + (currentQuestionIndex + 1) + ' من 5';
+            document.getElementById('currentScore').textContent = 'النتيجة: ' + score;
+            document.getElementById('progressFill').style.width = ((currentQuestionIndex / 5) * 100) + '%';
+            
+            // Update question
+            document.getElementById('questionNumber').textContent = 'السؤال #' + (currentQuestionIndex + 1);
+            document.getElementById('questionText').textContent = question.question;
+            
+            // Shuffle options
+            const shuffledOptions = shuffleArray([...question.options]);
+            
+            // Generate options HTML
+            const optionsGrid = document.getElementById('optionsGrid');
+            optionsGrid.innerHTML = '';
+            
+            for (var i = 0; i < shuffledOptions.length; i++) {
+                var option = shuffledOptions[i];
+                var btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = option;
+                btn.onclick = (function(selected, correctAnswer, correctBtn) {
+                    return function() {
+                        checkAnswer(selected, correctAnswer, correctBtn);
+                    };
+                })(option, question.correct, btn);
+                optionsGrid.appendChild(btn);
+            }
+            
+            // Hide feedback and next button
+            document.getElementById('feedbackMessage').classList.remove('show');
+            document.getElementById('nextQuestionBtn').classList.remove('show');
+        }
+
+        // Check answer
+        function checkAnswer(selected, correct, btn) {
+            // Disable all options
+            const allOptions = document.querySelectorAll('.option-btn');
+            for (let i = 0; i < allOptions.length; i++) {
+                allOptions[i].classList.add('disabled');
+            }
+            
+            // Check answer
+            if (selected === correct) {
+                btn.classList.add('correct');
+                score += 20;
+                correctAnswers++;
+                
+                // Update score display
+                document.getElementById('currentScore').textContent = 'النتيجة: ' + score;
+                
+                // Show feedback
+                document.getElementById('feedbackMessage').textContent = '✓ إجابة صحيحة! أحسنت!';
+                document.getElementById('feedbackMessage').className = 'feedback show correct';
+            } else {
+                btn.classList.add('wrong');
+                wrongAnswers++;
+                
+                // Highlight correct answer
+                for (let i = 0; i < allOptions.length; i++) {
+                    if (allOptions[i].textContent === correct) {
+                        allOptions[i].classList.add('correct');
+                    }
+                }
+                
+                // Show feedback
+                document.getElementById('feedbackMessage').textContent = '✗ إجابة خاطئة! الإجابة الصحيحة: ' + correct;
+                document.getElementById('feedbackMessage').className = 'feedback show wrong';
+            }
+            
+            // Show next button
+            document.getElementById('nextQuestionBtn').classList.add('show');
+        }
+
+        // Next question
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < 5) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show results
+        function showResults() {
+            // Hide quiz screen, show result screen
+            document.getElementById('quizScreen').classList.remove('active');
+            document.getElementById('resultScreen').classList.add('active');
+            
+            // Update progress bar
+            document.getElementById('progressFill').style.width = '100%';
+            
+            // Update final score
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('correctAnswers').textContent = correctAnswers;
+            document.getElementById('wrongAnswers').textContent = wrongAnswers;
+            
+            // Set emoji based on score
+            var emoji = '💪';
+            var title = 'حاول مرة أخرى!';
+            var message = 'لا بأس! حاول مرة أخرى!';
+            
+            if (score >= 100) {
+                emoji = '🏆';
+                title = 'ممتاز!';
+                message = 'أحسنت! أنت خبير حقيقي في أعمال العنود سعود!';
+            } else if (score >= 80) {
+                emoji = '🌟';
+                title = 'رائع جداً!';
+                message = 'معرفة ممتازة بأعمال العنود سعود!';
+            } else if (score >= 60) {
+                emoji = '👍';
+                title = 'جيد جداً!';
+                message = 'أداء جيد! استمر في التعلم عن أعمالها!';
+            } else if (score >= 40) {
+                emoji = '💪';
+                title = 'جيد!';
+                message = 'لديك معرفة جيدة. يمكنك تحسينها بالمزيد من المشاهدة!';
+            }
+            
+            document.getElementById('resultEmoji').textContent = emoji;
+            document.getElementById('resultTitle').textContent = title;
+            document.getElementById('resultMessage').textContent = message;
+        }
+
+        // Shuffle array helper
+        function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        }
+
+        // ========================================
+        // Snowfall Effect
+        // ========================================
+        
+        function createSnowflakes() {
+            const snowflakesContainer = document.querySelector('.snowflakes');
+            const snowflakeChars = ['❄', '❅', '❆', '•', '✻', '✼', '❉'];
+            
+            // Create 50 snowflakes
             for (let i = 0; i < 50; i++) {
                 const snowflake = document.createElement('div');
                 snowflake.className = 'snowflake';
-                snowflake.innerHTML = snowflakes[Math.floor(Math.random() * snowflakes.length)];
-                snowflake.style.left = Math.random() * 100 + 'vw';
-                snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                snowflake.style.animationDelay = (Math.random() * 5) + 's';
-                snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+                snowflake.innerHTML = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+                
+                // Random horizontal position
+                snowflake.style.left = Math.random() * 100 + '%';
+                
+                // Random animation duration (5-15 seconds)
+                snowflake.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                
+                // Random animation delay
+                snowflake.style.animationDelay = (Math.random() * 15) + 's';
+                
+                // Random size
+                snowflake.style.fontSize = (Math.random() * 0.5 + 0.5) + 'em';
+                
+                // Random opacity
                 snowflake.style.opacity = Math.random() * 0.6 + 0.2;
-                container.appendChild(snowflake);
+                
+                snowflakesContainer.appendChild(snowflake);
             }
         }
-        
-        // Start snow effect when page loads
-        window.addEventListener('load', createSnowflakes);
+
+        // Initialize snowflakes when page loads
+        window.addEventListener('load', function() {
+            createSnowflakes();
+        });
     </script>
 </body>
 </html>
